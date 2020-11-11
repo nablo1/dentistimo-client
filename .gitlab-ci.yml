@@ -10,7 +10,7 @@ stages:
 build:
     stage: build
     tags:
-        -docker
+        - docker
     script:
         - echo "Build started"
         - npm install
