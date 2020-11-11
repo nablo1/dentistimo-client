@@ -1,0 +1,23 @@
+# Credit: Joel Scheuner, DIT341.
+# I read his file in order to understand how to make my own.
+
+image: node:10-alpine
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - server/node_modules/
+
+stages:
+  - build
+
+build:
+  stage: build
+  tags:
+    - docker
+  script:
+    - echo "Build started"
+    - npm install
+    - npm run lint
+    - npm run serve
+    - echo "Build successful"
