@@ -15,5 +15,5 @@ build:
         - echo "Build started"
         - npm install
         - npm run lint
-        - npm run serve
+        - npm run build
         - echo "Build complete"
