@@ -62,6 +62,7 @@
 
     data() {
       return {
+        expanded: false,
         screenY: 0,
         mouseY: 0,
       }
