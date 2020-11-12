@@ -1,0 +1,11 @@
+.app-header {
+  position: fixed;
+  width: 100vw;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.app-header .app-header_nav a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=AppHeader.css.map */
