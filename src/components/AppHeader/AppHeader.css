@@ -2,10 +2,17 @@
   position: fixed;
   width: 100vw;
   background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 .app-header .app-header_nav a {
   text-decoration: none;
+  outline: none;
+}
+.app-header .app-header_nav a .app-header_nav-icon {
+  font-size: 1.8rem;
+}
+.app-header .app-header_nav a.dropdown-item {
+  text-align: center;
 }
 
 /*# sourceMappingURL=AppHeader.css.map */
