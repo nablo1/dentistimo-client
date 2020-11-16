@@ -25,7 +25,7 @@
       triggers="hover"
       placement="right"
     >
-      Calendar
+      Calendar settings
     </b-tooltip>
 
     <b-tooltip
@@ -33,7 +33,7 @@
       triggers="hover"
       placement="right"
     >
-      Dentists
+      Dentist settings
     </b-tooltip>
 
     <b-tooltip
@@ -41,7 +41,7 @@
       triggers="hover"
       placement="right"
     >
-      Settings
+      General settings
     </b-tooltip>
   </div>
 </template>
