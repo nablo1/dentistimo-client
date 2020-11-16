@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="go-home-modal" centered>
+  <b-modal id="go-home-modal" class="admin-sidebar_modal" centered>
     <p>
       By continuing, you sign out from admin view and return to Dentistimo's
       main website
@@ -17,4 +17,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "./AdminSidebarModal.css";
+</style>
