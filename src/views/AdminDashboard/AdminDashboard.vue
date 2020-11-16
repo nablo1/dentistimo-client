@@ -1,10 +1,17 @@
 <template>
-  <div class="admin-dashboard"></div>
+  <div class="admin-dashboard">
+    <admin-sidebar />
+    <div class="admin-dashboard_content">
+      <!-- TODO: Add dashboard content here -->
+    </div>
+  </div>
 </template>
 
 <script>
+import AdminSidebar from "@/components/AdminSidebar/AdminSidebar";
 export default {
-  name: "AdminDashboard"
+  name: "AdminDashboard",
+  components: { AdminSidebar }
 };
 </script>
 
