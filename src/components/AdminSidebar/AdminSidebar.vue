@@ -1,7 +1,7 @@
 <template>
   <div class="admin-sidebar">
     <div class="admin-sidebar_brand-logo">
-      <b-button class="admin-sidebar_button">
+      <b-button id="tooltip-target-dentistimo" class="admin-sidebar_button">
         <logo-small-white />
       </b-button>
     </div>
@@ -18,16 +18,19 @@
         </b-button>
       </li>
     </ul>
+
+    <admin-sidebar-tooltips />
   </div>
 </template>
 
 <script>
 import LogoSmallWhite from "@/components/svg/LogoSmallWhite/LogoSmallWhite";
+import AdminSidebarTooltips from "@/components/AdminSidebar/AdminSidebarTooltips";
 
 export default {
   name: "AdminSidebar",
 
-  components: { LogoSmallWhite },
+  components: { AdminSidebarTooltips, LogoSmallWhite },
 
   methods: {
     // TODO: Create method that prompts the end-user to choose to sign out and go to landing page, or cancel, when clicking the brand logo router-link.
@@ -38,22 +41,22 @@ export default {
       sidebarNav: [
         {
           icon: "journal-bookmark-fill",
-          tooltipId: "tooltip-target-2",
+          tooltipId: "tooltip-target-patient-log",
           tooltipText: "Patient log"
         },
         {
           icon: "calendar3",
-          tooltipId: "tooltip-target-3",
+          tooltipId: "tooltip-target-calendar",
           tooltipText: "Calendar"
         },
         {
           icon: "people-fill",
-          tooltipId: "tooltip-target-4",
+          tooltipId: "tooltip-target-dentists",
           tooltipText: "Dentists"
         },
         {
           icon: "tools",
-          tooltipId: "tooltip-target-5",
+          tooltipId: "tooltip-target-settings",
           tooltipText: "Settings"
         }
       ]
