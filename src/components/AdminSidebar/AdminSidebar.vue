@@ -1,7 +1,11 @@
 <template>
   <div class="admin-sidebar">
     <div class="admin-sidebar_brand-logo">
-      <b-button v-b-modal.go-home-modal id="tooltip-target-dentistimo" class="admin-sidebar_button">
+      <b-button
+        v-b-modal.go-home-modal
+        id="tooltip-target-dentistimo"
+        class="admin-sidebar_button"
+      >
         <logo-small-white />
       </b-button>
     </div>
@@ -33,7 +37,7 @@ import AdminSidebarModal from "@/components/AdminSidebar/AdminSidebarModal";
 export default {
   name: "AdminSidebar",
 
-  components: {AdminSidebarModal, AdminSidebarTooltips, LogoSmallWhite },
+  components: { AdminSidebarModal, AdminSidebarTooltips, LogoSmallWhite },
 
   data() {
     return {

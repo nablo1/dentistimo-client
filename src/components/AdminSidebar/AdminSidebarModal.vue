@@ -1,6 +1,9 @@
 <template>
   <b-modal id="go-home-modal" centered>
-    <p>By continuing, you sign out from admin view and return to Dentistimo's main website</p>
+    <p>
+      By continuing, you sign out from admin view and return to Dentistimo's
+      main website
+    </p>
   </b-modal>
 </template>
 
