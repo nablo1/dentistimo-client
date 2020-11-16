@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- TODO: AdminDashboard is added for testing in UI, remove when no longer needed here :) -->
     <admin-dashboard />
   </div>
 </template>
