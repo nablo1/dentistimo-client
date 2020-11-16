@@ -4,10 +4,10 @@
 
 <script>
 export default {
-name: "AdminDashboard"
-}
+  name: "AdminDashboard"
+};
 </script>
 
 <style scoped>
-@import "./AdminDashboard.css"
+@import "./AdminDashboard.css";
 </style>
