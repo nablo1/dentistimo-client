@@ -1,7 +1,7 @@
 <template>
   <div class="admin-sidebar">
     <div class="admin-sidebar_brand-logo">
-      <b-button id="tooltip-target-dentistimo" class="admin-sidebar_button">
+      <b-button v-b-modal.go-home-modal id="tooltip-target-dentistimo" class="admin-sidebar_button">
         <logo-small-white />
       </b-button>
     </div>
@@ -20,21 +20,20 @@
     </ul>
 
     <admin-sidebar-tooltips />
+
+    <admin-sidebar-modal />
   </div>
 </template>
 
 <script>
 import LogoSmallWhite from "@/components/svg/LogoSmallWhite/LogoSmallWhite";
 import AdminSidebarTooltips from "@/components/AdminSidebar/AdminSidebarTooltips";
+import AdminSidebarModal from "@/components/AdminSidebar/AdminSidebarModal";
 
 export default {
   name: "AdminSidebar",
 
-  components: { AdminSidebarTooltips, LogoSmallWhite },
-
-  methods: {
-    // TODO: Create method that prompts the end-user to choose to sign out and go to landing page, or cancel, when clicking the brand logo router-link.
-  },
+  components: {AdminSidebarModal, AdminSidebarTooltips, LogoSmallWhite },
 
   data() {
     return {
