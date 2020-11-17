@@ -3,6 +3,9 @@
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
+.app-header nav {
+  padding: 0;
+}
 .app-header .app-header_nav a {
   text-decoration: none;
   outline: none;
