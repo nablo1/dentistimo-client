@@ -15,7 +15,7 @@ Potential general description goes here.
 - Related files have been linted (i.e. `npm run lint` was run before the final commit)
 - The app starts on localhost:8080 when `npm run serve` is run
 - There are no browser console errors or warnings
-- Code is commented and readable
+- Code is commented and readable, using the appropriate syntax and conventions
 
 ### Specific for this merge request
 - Acceptance criteria goes here (this is a placeholder)
