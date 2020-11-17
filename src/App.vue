@@ -1,26 +1,21 @@
 <template>
-  <div id="app">
-    <!-- TODO: AdminDashboard is added for testing in UI, remove when no longer needed here :) -->
-    <admin-dashboard />
+  <div id="app" class="root">
+    <app-header />
+    <router-view />
+    <app-footer />
   </div>
 </template>
 
 <script>
-import AdminDashboard from "@/views/AdminDashboard/AdminDashboard";
+  import AppHeader from '@/components/AppHeader/AppHeader'
+  import AppFooter from '@/components/AppFooter/AppFooter'
 
-export default {
-  name: "App",
-  components: {
-    AdminDashboard
+  export default {
+    name: 'App',
+    components: { AppFooter, AppHeader },
   }
-};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
+  @import './App.css';
 </style>
