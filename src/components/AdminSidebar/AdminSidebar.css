@@ -63,4 +63,12 @@
   width: 26px;
 }
 
+.admin-sidebar_brand-logo button, .admin-sidebar_nav button {
+  transition: 0.5s;
+}
+
+.admin-sidebar_brand-logo button:hover, .admin-sidebar_nav button:hover {
+  opacity: 0.5;
+}
+
 /*# sourceMappingURL=AdminSidebar.css.map */
