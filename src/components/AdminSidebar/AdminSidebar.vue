@@ -30,44 +30,44 @@
 </template>
 
 <script>
-import LogoSmallWhite from "@/components/svg/LogoSmallWhite/LogoSmallWhite";
-import AdminSidebarTooltips from "@/components/AdminSidebar/AdminSidebarTooltips";
-import AdminSidebarModal from "@/components/AdminSidebar/AdminSidebarModal";
+  import LogoSmallWhite from '@/components/svg/LogoSmallWhite/LogoSmallWhite'
+  import AdminSidebarTooltips from '@/components/AdminSidebar/AdminSidebarTooltips'
+  import AdminSidebarModal from '@/components/AdminSidebar/AdminSidebarModal'
 
-export default {
-  name: "AdminSidebar",
+  export default {
+    name: 'AdminSidebar',
 
-  components: { AdminSidebarModal, AdminSidebarTooltips, LogoSmallWhite },
+    components: { AdminSidebarModal, AdminSidebarTooltips, LogoSmallWhite },
 
-  data() {
-    return {
-      sidebarNav: [
-        {
-          icon: "journal-bookmark-fill",
-          tooltipId: "tooltip-target-patient-log",
-          tooltipText: "Patient log"
-        },
-        {
-          icon: "calendar3",
-          tooltipId: "tooltip-target-calendar",
-          tooltipText: "Calendar"
-        },
-        {
-          icon: "people-fill",
-          tooltipId: "tooltip-target-dentists",
-          tooltipText: "Dentists"
-        },
-        {
-          icon: "tools",
-          tooltipId: "tooltip-target-settings",
-          tooltipText: "Settings"
-        }
-      ]
-    };
+    data() {
+      return {
+        sidebarNav: [
+          {
+            icon: 'journal-bookmark-fill',
+            tooltipId: 'tooltip-target-patient-log',
+            tooltipText: 'Patient log',
+          },
+          {
+            icon: 'calendar3',
+            tooltipId: 'tooltip-target-calendar',
+            tooltipText: 'Calendar',
+          },
+          {
+            icon: 'people-fill',
+            tooltipId: 'tooltip-target-dentists',
+            tooltipText: 'Dentists',
+          },
+          {
+            icon: 'tools',
+            tooltipId: 'tooltip-target-settings',
+            tooltipText: 'Settings',
+          },
+        ],
+      }
+    },
   }
-};
 </script>
 
 <style scoped>
-@import "./AdminSidebar.css";
+  @import './AdminSidebar.css';
 </style>

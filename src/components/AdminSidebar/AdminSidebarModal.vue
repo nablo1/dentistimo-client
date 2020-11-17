@@ -8,15 +8,15 @@
 </template>
 
 <script>
-export default {
-  name: "AdminSidebarModal",
+  export default {
+    name: 'AdminSidebarModal',
 
-  methods: {
-    // TODO: Add method to push the '/' path on modal 'OK' click once routing has been made available through master
+    methods: {
+      // TODO: Add method to push the '/' path on modal 'OK' click once routing has been made available through master
+    },
   }
-};
 </script>
 
 <style scoped>
-@import "./AdminSidebarModal.css";
+  @import './AdminSidebarModal.css';
 </style>

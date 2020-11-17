@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import AdminSidebar from "@/components/AdminSidebar/AdminSidebar";
-export default {
-  name: "AdminDashboard",
-  components: { AdminSidebar }
-};
+  import AdminSidebar from '@/components/AdminSidebar/AdminSidebar'
+  export default {
+    name: 'AdminDashboard',
+    components: { AdminSidebar },
+  }
 </script>
 
 <style scoped>
-@import "./AdminDashboard.css";
+  @import './AdminDashboard.css';
 </style>

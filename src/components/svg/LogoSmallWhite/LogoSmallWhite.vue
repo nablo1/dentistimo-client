@@ -20,11 +20,11 @@
 </template>
 
 <script>
-export default {
-  name: "LogoSmallWhite"
-};
+  export default {
+    name: 'LogoSmallWhite',
+  }
 </script>
 
 <style scoped>
-@import "./LogoSmallWhite.css";
+  @import './LogoSmallWhite.css';
 </style>

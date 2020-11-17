@@ -47,7 +47,7 @@
 </template>
 
 <script>
-export default {
-  name: "AdminSidebarTooltips"
-};
+  export default {
+    name: 'AdminSidebarTooltips',
+  }
 </script>
