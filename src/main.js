@@ -3,10 +3,7 @@ import App from './App.vue'
 import router from './router'
 
 // Bootstrap imports
-import {
-  BootstrapVue,
-  BootstrapVueIcons,
-} from 'bootstrap-vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
