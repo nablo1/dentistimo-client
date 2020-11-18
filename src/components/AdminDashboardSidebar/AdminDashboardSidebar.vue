@@ -23,21 +23,25 @@
       </li>
     </ul>
 
-    <admin-sidebar-tooltips />
+    <admin-dashboard-sidebar-tooltips />
 
-    <admin-sidebar-modal />
+    <admin-dashboard-sidebar-modal />
   </div>
 </template>
 
 <script>
   import LogoSmallWhite from '@/components/svg/LogoSmallWhite/LogoSmallWhite'
-  import AdminSidebarTooltips from '@/components/AdminSidebar/AdminSidebarTooltips'
-  import AdminSidebarModal from '@/components/AdminSidebar/AdminSidebarModal'
+  import AdminDashboardSidebarModal from '@/components/AdminDashboardSidebar/AdminDashboardSidebarModal'
+  import AdminDashboardSidebarTooltips from '@/components/AdminDashboardSidebar/AdminDashboardSidebarTooltips'
 
   export default {
     name: 'AdminSidebar',
 
-    components: { AdminSidebarModal, AdminSidebarTooltips, LogoSmallWhite },
+    components: {
+      AdminDashboardSidebarModal,
+      AdminDashboardSidebarTooltips,
+      LogoSmallWhite,
+    },
 
     data() {
       return {
@@ -69,5 +73,5 @@
 </script>
 
 <style scoped>
-  @import './AdminSidebar.css';
+  @import './AdminDashboardSidebar.css';
 </style>
