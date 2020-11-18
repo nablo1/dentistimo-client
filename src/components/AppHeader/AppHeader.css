@@ -3,8 +3,9 @@
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
-.app-header nav {
-  padding: 0;
+
+.app-header_nav-btn, .app-header_search-btn {
+  float: right;
 }
 
 /*# sourceMappingURL=AppHeader.css.map */
