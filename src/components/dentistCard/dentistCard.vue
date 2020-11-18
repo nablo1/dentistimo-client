@@ -19,13 +19,13 @@
           </b-col>
           <b-col md="6">
             <b-card-body title="">
-              <b-card-text class="font-weight-bold">
+              <b-card-text class="font-weight-bold" id="name">
                 <br />
 
                 <!-- Placeholder -->
                 Dentist Clinic Name
               </b-card-text>
-              <b-card-text class="text-left">
+              <b-card-text class="text-left" id="address">
                 <b-icon icon="geo-alt-fill"></b-icon>
 
                 <!--Placeholder -->
@@ -43,4 +43,12 @@
   export default {}
 </script>
 
-<style></style>
+<style>
+  #address {
+    color: black;
+  }
+
+  #name {
+    color: black;
+  }
+</style>
