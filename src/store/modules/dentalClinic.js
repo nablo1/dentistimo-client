@@ -5,7 +5,7 @@ const state = {
 }
 
 const getters = {
-    clinicSignedIn: state => {
+  clinicSignedIn: state => {
     return state.clinicSignedIn
   },
 }
