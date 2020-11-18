@@ -1,4 +1,5 @@
 .admin-sidebar {
+  z-index: 1000;
   background: linear-gradient(45deg, #007bff 0%, #17a2b8 100%);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
