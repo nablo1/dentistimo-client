@@ -5,7 +5,10 @@
       <b-container>
         <b-row>
           <b-col>
-            <patient-log />
+            <patient-log v-if="dashboardView === 'patientLog'" />
+            <calendar-settings v-if="dashboardView === 'calendarSettings'" />
+            <dentist-settings v-if="dashboardView === 'dentistSettings'" />
+            <clinic-settings v-if="dashboardView === 'clinicSettings'" />
           </b-col>
         </b-row>
       </b-container>
@@ -17,12 +20,21 @@
   import { mapGetters } from 'vuex'
   import AdminDashboardSidebar from '@/components/AdminDashboardSidebar/AdminDashboardSidebar'
   import PatientLog from '@/components/PatientLog/PatientLog'
+  import CalendarSettings from '@/components/CalendarSettings/CalendarSettings'
+  import DentistSettings from '@/components/DentistSettings/DentistSettings'
+  import ClinicSettings from '@/components/ClinicSettings/ClinicSettings'
 
   export default {
     name: 'AdminDashboard',
-    components: { PatientLog, AdminDashboardSidebar },
+    components: {
+      ClinicSettings,
+      DentistSettings,
+      CalendarSettings,
+      PatientLog,
+      AdminDashboardSidebar,
+    },
 
-    computed: { ...mapGetters(['clinicSignedIn']) },
+    computed: { ...mapGetters(['clinicSignedIn', 'dashboardView']) },
 
     created() {
       // TODO: push to a view with sign-in when one is created, instead of '/'
