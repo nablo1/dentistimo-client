@@ -9,7 +9,6 @@
         </b-col>
       </b-row>
       <b-row class="app-footer_nav">
-
         <!-- TODO: Add router link paths -->
 
         <b-col xl="2" lg="2" md="2" sm="6">
@@ -54,11 +53,11 @@
 </template>
 
 <script>
-export default {
-name: "AppFooter"
-}
+  export default {
+    name: 'AppFooter',
+  }
 </script>
 
 <style scoped>
-@import './AppFooter.css';
+  @import './AppFooter.css';
 </style>

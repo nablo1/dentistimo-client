@@ -1,0 +1,82 @@
+// ________________________________ Size indicators
+$md-icon: 32px
+$sm-icon: 26px
+
+$button-margin: 20px
+
+// ________________________________ Colors & shadows
+// TODO: Add to src/App.sass when it is made available in master
+$dark-purple: #6453cb
+$light-purple: #8492dc
+$purple-gradient: linear-gradient(45deg, $dark-purple 0%, $light-purple 100%)
+$slight-shadow: 0 0 10px rgba(0, 0, 0, .1)
+
+// ________________________________ Viewport breakpoints
+$md: 768px
+
+// ________________________________ Sidebar colors and shadows
+.admin-sidebar
+  background: $purple-gradient
+  box-shadow: $slight-shadow
+
+// ________________________________ Sidebar positioning
+.admin-sidebar
+  position: fixed
+  width: 100vw
+  bottom: 0
+  padding: ($button-margin / 2)
+  text-align: center
+
+.admin-sidebar_brand-logo, .admin-sidebar_nav
+  display: inline-block
+
+  button
+    margin: 0 ($button-margin * .1) 0 ($button-margin * .1)
+
+.admin-sidebar_nav
+  margin: 0
+  padding: 0
+  list-style: none
+.admin-sidebar_nav-item
+  display: inline-block
+
+@media only screen and (min-width: $md)
+  .admin-sidebar
+    top: 0
+    bottom: auto
+    height: 100vh
+    width: auto
+    padding: $button-margin 0 0 0
+
+  .admin-sidebar_brand-logo, .admin-sidebar_nav
+    display: block
+
+    button
+      margin: 0 0 $button-margin 0
+
+  .admin-sidebar_nav-item
+    display: block
+
+// ________________________________ Button styling
+.admin-sidebar_brand-logo button, .admin-sidebar_nav button, .admin-sidebar_brand-logo button:hover, .admin-sidebar_nav button:hover
+  background: transparent
+  border: none
+  // TODO: Find out which button selector isn't included here, and makes the bootstrap styling visible on click
+
+.admin-sidebar_brand-logo button
+  svg
+    height: $md-icon
+    width: $md-icon
+
+.admin-sidebar_nav button
+  svg
+    height: $sm-icon
+    width: $sm-icon
+
+.admin-sidebar_brand-logo button, .admin-sidebar_nav button
+  transition: .5s
+.admin-sidebar_brand-logo button:hover, .admin-sidebar_nav button:hover
+  opacity: .5
+
+
+//TODO: Add styling for hover and current when state is established
