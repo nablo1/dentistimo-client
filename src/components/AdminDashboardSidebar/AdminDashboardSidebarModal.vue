@@ -19,12 +19,13 @@
     name: 'AdminSidebarModal',
 
     methods: {
-      ...mapActions(['setSignedIn']),
+      ...mapActions(['setSignedIn', 'setDashboardView']),
 
       returnHome() {
         // TODO: Change once auth is set up
         this.setSignedIn(false)
         this.$router.push('/')
+        this.setDashboardView(null)
       },
     },
   }
