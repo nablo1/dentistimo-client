@@ -4,4 +4,15 @@
   background: #fafafa;
 }
 
+.admin-dashboard_content {
+  margin-bottom: 64px !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .admin-dashboard_content {
+    margin-bottom: 0 !important;
+    margin-left: 44px !important;
+  }
+}
+
 /*# sourceMappingURL=AdminDashboard.css.map */
