@@ -17,7 +17,7 @@
         :id="navItem.tooltipId"
         class="admin-sidebar_nav-item"
       >
-        <b-button>
+        <b-button @click="setDashboardView(navItem.dashboardContent)">
           <b-icon :icon="navItem.icon" />
         </b-button>
       </li>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   import LogoSmallWhite from '../svg/LogoSmallWhite/LogoSmallWhite'
   import AdminDashboardSidebarModal from './AdminDashboardSidebarModal'
   import AdminDashboardSidebarTooltips from './AdminDashboardSidebarTooltips'
@@ -43,6 +44,8 @@
       LogoSmallWhite,
     },
 
+    methods: { ...mapActions(['setDashboardView']) },
+
     data() {
       return {
         sidebarNav: [
@@ -50,21 +53,25 @@
             icon: 'journal-bookmark-fill',
             tooltipId: 'tooltip-target-patient-log',
             tooltipText: 'Patient log',
+            dashboardContent: 'patientLog',
           },
           {
             icon: 'calendar3',
             tooltipId: 'tooltip-target-calendar',
             tooltipText: 'Calendar',
+            dashboardContent: 'calendarSettings',
           },
           {
             icon: 'people-fill',
             tooltipId: 'tooltip-target-dentists',
             tooltipText: 'Dentists',
+            dashboardContent: 'dentistSettings',
           },
           {
             icon: 'tools',
             tooltipId: 'tooltip-target-settings',
             tooltipText: 'Settings',
+            dashboardContent: 'clinicSettings',
           },
         ],
       }
