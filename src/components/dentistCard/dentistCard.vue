@@ -9,7 +9,7 @@
         <b-col md="6">
           <!--Placeholder image -->
           <b-card-img
-            src="src\assets\dentistImage.jpg"
+            src="dentistImage..jpg"
             alt="Image"
             class="rounded-0"
           ></b-card-img>
@@ -22,11 +22,11 @@
               <!-- Placeholder -->
               Dentist Clinic Name
             </b-card-text>
-            <b-card-text>
+            <b-card-text class="text-left">
               <b-icon icon="geo-alt-fill"></b-icon>
 
               <!--Placeholder -->
-              Street Address
+              Location
             </b-card-text>
           </b-card-body>
         </b-col>
