@@ -9,7 +9,7 @@
         <b-col md="6">
           <!--Placeholder image -->
           <b-card-img
-            src="https://picsum.photos/400/400/?image=20"
+            src="src\assets\dentistImage.jpg"
             alt="Image"
             class="rounded-0"
           ></b-card-img>
