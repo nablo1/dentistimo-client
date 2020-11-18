@@ -7,11 +7,13 @@
       <!-- <signing-in-content /> -->
 
       <!-- TODO: Add router link when page is created -->
-      <p class="mt-4"><small>
-        Not finding what you're looking for?
-        <br>
-        <router-link>Visit our Frequently Asked Questions page.</router-link>
-      </small></p>
+      <p class="mt-4">
+        <small>
+          Not finding what you're looking for?
+          <br />
+          <router-link>Visit our Frequently Asked Questions page.</router-link>
+        </small>
+      </p>
     </div>
   </b-sidebar>
 </template>
