@@ -14,7 +14,6 @@
       <li
         v-for="(navItem, index) in sidebarNav"
         :key="index"
-        :id="navItem.tooltipId"
         class="admin-sidebar_nav-item"
       >
         <b-button @click="setDashboardView(navItem.dashboardContent)">
@@ -22,8 +21,6 @@
         </b-button>
       </li>
     </ul>
-
-    <admin-dashboard-sidebar-tooltips />
 
     <admin-dashboard-sidebar-modal />
   </div>
@@ -33,14 +30,12 @@
   import { mapActions } from 'vuex'
   import LogoSmallWhite from '../svg/LogoSmallWhite/LogoSmallWhite'
   import AdminDashboardSidebarModal from './AdminDashboardSidebarModal'
-  import AdminDashboardSidebarTooltips from './AdminDashboardSidebarTooltips'
 
   export default {
     name: 'AdminSidebar',
 
     components: {
       AdminDashboardSidebarModal,
-      AdminDashboardSidebarTooltips,
       LogoSmallWhite,
     },
 
@@ -51,26 +46,18 @@
         sidebarNav: [
           {
             icon: 'journal-bookmark-fill',
-            tooltipId: 'tooltip-target-patient-log',
-            tooltipText: 'Patient log',
             dashboardContent: 'patientLog',
           },
           {
             icon: 'calendar3',
-            tooltipId: 'tooltip-target-calendar',
-            tooltipText: 'Calendar',
             dashboardContent: 'calendarSettings',
           },
           {
             icon: 'people-fill',
-            tooltipId: 'tooltip-target-dentists',
-            tooltipText: 'Dentists',
             dashboardContent: 'dentistSettings',
           },
           {
             icon: 'tools',
-            tooltipId: 'tooltip-target-settings',
-            tooltipText: 'Settings',
             dashboardContent: 'clinicSettings',
           },
         ],
