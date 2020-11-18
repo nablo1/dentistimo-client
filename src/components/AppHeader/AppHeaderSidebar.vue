@@ -11,7 +11,7 @@
         <small>
           Not finding what you're looking for?
           <br />
-          <router-link>Visit our Frequently Asked Questions page.</router-link>
+          <router-link to="/">Visit our Frequently Asked Questions page.</router-link>
         </small>
       </p>
     </div>
