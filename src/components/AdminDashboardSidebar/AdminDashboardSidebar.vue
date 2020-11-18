@@ -30,9 +30,9 @@
 </template>
 
 <script>
-  import LogoSmallWhite from '@/components/svg/LogoSmallWhite/LogoSmallWhite'
-  import AdminDashboardSidebarModal from '@/components/AdminDashboardSidebar/AdminDashboardSidebarModal'
-  import AdminDashboardSidebarTooltips from '@/components/AdminDashboardSidebar/AdminDashboardSidebarTooltips'
+  import LogoSmallWhite from '../svg/LogoSmallWhite/LogoSmallWhite'
+  import AdminDashboardSidebarModal from './AdminDashboardSidebarModal'
+  import AdminDashboardSidebarTooltips from './AdminDashboardSidebarTooltips'
 
   export default {
     name: 'AdminSidebar',
