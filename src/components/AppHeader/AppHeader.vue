@@ -1,6 +1,6 @@
 <template>
   <header id="appHeader" class="app-header">
-    <b-container>
+    <b-container v-if="!clinicSignedIn">
       <b-row class="py-2">
         <b-col cols="8" sm="9" md="10" lg="10" xl="10">
           <!-- TODO: Replace 'Dentistimo' with app logos here -->
@@ -34,10 +34,13 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import AppHeaderSidebar from './AppHeaderSidebar'
+
   export default {
     name: 'AppHeader',
     components: { AppHeaderSidebar },
+    computed: { ...mapGetters(['clinicSignedIn']) },
   }
 </script>
 
