@@ -2,7 +2,7 @@
 
 const state = {
   clinicSignedIn: false,
-  dashboardView: null,
+  dashboardView: 'patientLog',
 }
 
 const getters = {
