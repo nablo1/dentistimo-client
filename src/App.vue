@@ -1,7 +1,11 @@
 <template>
   <div id="app" class="root">
     <app-header />
-    <router-view />
+
+    <transition name="fade">
+      <router-view />
+    </transition>
+
     <app-footer />
   </div>
 </template>
