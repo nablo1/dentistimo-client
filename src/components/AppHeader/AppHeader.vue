@@ -13,42 +13,11 @@
 
             <!-- TODO: Use search form component -->
 
-            <b-navbar-nav class="ml-auto">
-              <b-nav-item-dropdown right no-caret>
-                <!-- TODO: Figure out why the icons down change on click -->
-                <template #button-content #default="{ expanded }">
-                  <b-icon-x v-if="expanded" class="app-header_nav-icon" />
-                  <b-icon-justify v-else class="app-header_nav-icon" />
-                </template>
+            <b-button v-b-toggle.app-header-sidebar>
+              <b-icon-justify />
+            </b-button>
 
-                <!-- TODO: Add page links here -->
-                <b-dropdown-item href="#">
-                  <router-link to="/">Link to other view</router-link>
-                </b-dropdown-item>
-
-                <b-dropdown-item href="#">
-                  <router-link to="/">Link to other view</router-link>
-                </b-dropdown-item>
-
-                <b-dropdown-item href="#">
-                  <router-link to="/">Link to other view</router-link>
-                </b-dropdown-item>
-
-                <b-dropdown-item>
-                  <b-button-group>
-                    <!-- TODO: Lead log in button to modal on click -->
-                    <b-button variant="outline-primary">
-                      Log in
-                    </b-button>
-
-                    <!-- TODO: Lead sign up button to view on click -->
-                    <b-button variant="primary">
-                      Sign up
-                    </b-button>
-                  </b-button-group>
-                </b-dropdown-item>
-              </b-nav-item-dropdown>
-            </b-navbar-nav>
+            <app-header-sidebar class="ml-auto" />
           </b-navbar>
         </b-col>
       </b-row>
@@ -57,9 +26,10 @@
 </template>
 
 <script>
+  import AppHeaderSidebar from './AppHeaderSidebar'
   export default {
     name: 'AppHeader',
-
+    components: { AppHeaderSidebar },
     data() {
       return {
         expanded: false,
