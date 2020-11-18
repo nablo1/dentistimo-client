@@ -28,7 +28,7 @@ const actions = {
     commit('SET_CLINICSIGNEDIN', bool)
     return state.clinicSignedIn
   },
-  setDashboardview: ({ commit, state }, viewContent) => {
+  setDashboardView: ({ commit, state }, viewContent) => {
     commit('SET_DASHBOARDVIEW', viewContent)
     return state.dashboardView
   },
