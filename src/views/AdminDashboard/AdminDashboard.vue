@@ -1,6 +1,6 @@
 <template>
   <div class="admin-dashboard">
-    <admin-sidebar />
+    <admin-dashboard-sidebar />
     <div class="admin-dashboard_content">
       <!-- TODO: Add dashboard content here -->
     </div>
@@ -8,10 +8,10 @@
 </template>
 
 <script>
-  import AdminSidebar from '@/components/AdminSidebar/AdminSidebar'
+  import AdminDashboardSidebar from '@/components/AdminDashboardSidebar/AdminDashboardSidebar'
   export default {
     name: 'AdminDashboard',
-    components: { AdminSidebar },
+    components: { AdminDashboardSidebar },
   }
 </script>
 
