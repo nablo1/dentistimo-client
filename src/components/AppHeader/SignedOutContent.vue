@@ -38,7 +38,7 @@
             paths below.
           </small>
         </p>
-        <b-button variant="outline-primary" block>
+        <b-button @click="authDentalClinic" variant="outline-primary" block>
           Sign in
         </b-button>
         <b-button variant="primary" block>
@@ -50,9 +50,19 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
-    name: 'SidebarContnetSignedOut',
+    name: 'SidebarContentSignedOut',
+
+    methods: {
+      ...mapActions(['setSignedIn']),
+
+      authDentalClinic() {
+        // TODO: This has to be changed when authentication is set up
+        this.setSignedIn(true)
+        this.$router.push('/clinic-admin')
+      },
+    },
   }
 </script>
-
-<style scoped></style>
