@@ -2,7 +2,7 @@
   <div class="admin-dashboard">
     <admin-dashboard-sidebar />
 
-    <div class="admin-dashboard-content">
+    <div class="admin-dashboard_content">
       <!-- Default content for admin dashboard view -->
       <b-container v-if="dashboardView === null" class="pt-5">
         <b-row class="mb-4">
