@@ -1,26 +1,26 @@
 <template>
   <div>
-    <b-card no-body class="overflow-hidden" style="max-width: 306px;">
+    <b-card no-body class="overflow-hidden dentistCard">
       <!--Placeholder link -->
       <a class="stretched-link " href>
         <b-row no-gutters>
           <b-col md="6">
             <!--Placeholder image -->
             <b-card-img
-              src="dentistImage..jpg"
+              src="https://images.unsplash.com/photo-1553691158-91a7f9183156?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
               alt="dentist clinic name"
               class="rounded-0"
-              id="img"
-            ></b-card-img>
+            />
           </b-col>
           <b-col md="6">
-            <b-card-body title="">
-              <b-card-text class="font-weight-bold" id="name">
+            <b-card-body>
+              <b-card-text class="font-weight-bold dentistNameCard">
                 <br />
+
                 <!-- Placeholder -->
                 Dentist Clinic Name
               </b-card-text>
-              <b-card-text id="address">
+              <b-card-text class="dentistAddressCard">
                 <b-icon icon="geo-alt-fill"></b-icon>
 
                 <!--Placeholder -->
@@ -35,22 +35,40 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    name: 'dentistCard',
+    //TODO: Waiting for the branch to merge in order to incorporate state handling to take props
+    props: [''],
+    data() {
+      return {
+        message: '',
+        text: '',
+      }
+    },
+  }
 </script>
 
 <style>
-  #address {
+  img {
+    object-fit: cover;
+    object-position: center;
+    height: 200px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    img {
+      max-width: 306px;
+    }
+  }
+  .dentistAddressCard {
+    /* TODO: Colors used. To be moved to the root styling */
     color: black;
     text-align: center;
   }
 
-  #name {
+  .dentistNameCard {
+    /* TODO: Colors used. To be moved to the root styling */
     color: black;
     text-align: center;
-  }
-
-  #img {
-    max-width: 100%;
-    height: auto;
   }
 </style>
