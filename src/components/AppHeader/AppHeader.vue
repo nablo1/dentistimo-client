@@ -1,94 +1,43 @@
 <template>
   <header id="appHeader" class="app-header">
     <b-container>
-      <b-row>
-        <b-col>
-          <b-navbar class="app-header_nav">
-            <b-navbar-brand class="app-header_brand">
-              <!-- TODO: Replace 'Dentistimo' with app logos here -->
-              <router-link to="/">
-                Dentistimo
-              </router-link>
-            </b-navbar-brand>
+      <b-row class="py-2">
+        <b-col cols="8" sm="9" md="10" lg="10" xl="10">
+          <!-- TODO: Replace 'Dentistimo' with app logos here -->
+          <router-link to="/">
+            Dentistimo
+          </router-link>
+        </b-col>
 
-            <!-- TODO: Use search form component -->
+        <b-col cols="2" sm="2" md="1" lg="1" xl="1">
+          <b-button variant="light" class="app-header_search-btn">
+            <b-icon-search />
+          </b-button>
+          <!--
+          TODO: Show search input field on click of above button. Cols have to be adjusted to fit this, probably with a v-if for the b-col.
+           -->
+        </b-col>
 
-            <b-navbar-nav class="ml-auto">
-              <b-nav-item-dropdown right no-caret>
-                <!-- TODO: Figure out why the icons down change on click -->
-                <template #button-content #default="{ expanded }">
-                  <b-icon-x v-if="expanded" class="app-header_nav-icon" />
-                  <b-icon-justify v-else class="app-header_nav-icon" />
-                </template>
-
-                <!-- TODO: Add page links here -->
-                <b-dropdown-item href="#">
-                  <router-link to="/">Link to other view</router-link>
-                </b-dropdown-item>
-
-                <b-dropdown-item href="#">
-                  <router-link to="/">Link to other view</router-link>
-                </b-dropdown-item>
-
-                <b-dropdown-item href="#">
-                  <router-link to="/">Link to other view</router-link>
-                </b-dropdown-item>
-
-                <b-dropdown-item>
-                  <b-button-group>
-                    <!-- TODO: Lead log in button to modal on click -->
-                    <b-button variant="outline-primary">
-                      Log in
-                    </b-button>
-
-                    <!-- TODO: Lead sign up button to view on click -->
-                    <b-button variant="primary">
-                      Sign up
-                    </b-button>
-                  </b-button-group>
-                </b-dropdown-item>
-              </b-nav-item-dropdown>
-            </b-navbar-nav>
-          </b-navbar>
+        <b-col cols="2" sm="1" md="1" lg="1" xl="1">
+          <b-button
+            v-b-toggle.app-header-sidebar
+            variant="light"
+            class="app-header_nav-btn"
+          >
+            <b-icon-justify />
+          </b-button>
         </b-col>
       </b-row>
     </b-container>
+    <app-header-sidebar />
   </header>
 </template>
 
 <script>
+  import AppHeaderSidebar from './AppHeaderSidebar'
   export default {
     name: 'AppHeader',
-
-    data() {
-      return {
-        expanded: false,
-        screenY: 0,
-        mouseY: 0,
-      }
-    },
-
-    /*
-
-    TODO: Figure out why this doesn't work as intended.
-
-    created() {
-      window.addEventListener('scroll', () => {
-        if (this.mouseY < 50 || this.screenY < 100)
-          document.getElementById('app-header').style.top = '0'
-        else document.getElementById('app-header').style.top = '-100px'
-      })
-
-      window.addEventListener('mousemove', event => {
-        this.mouseY = event.pageY - this.state.screenY
-
-        if (this.state.mouseY < 50 || this.state.screenY < 100)
-          document.getElementById('appHeader').style.top = '0'
-        else document.getElementById('appHeader').style.top = '-100px'
-      })
-    },
-
-    */
+    components: { AppHeaderSidebar },
   }
 </script>
 
