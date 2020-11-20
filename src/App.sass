@@ -9,3 +9,10 @@ $font-fam_default: 'Montserrat', Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   background: rgba(252, 252, 252)
+
+// Routing transition animations
+.fade-enter-active, .fade-leave-active
+  transition: opacity .3s
+
+.fade-enter, .fade-leave-to
+  opacity: 0

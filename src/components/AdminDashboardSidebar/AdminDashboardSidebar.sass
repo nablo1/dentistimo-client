@@ -6,9 +6,9 @@ $button-margin: 20px
 
 // ________________________________ Colors & shadows
 // TODO: Add to src/App.sass when it is made available in master
-$dark-purple: #6453cb
-$light-purple: #8492dc
-$purple-gradient: linear-gradient(45deg, $dark-purple 0%, $light-purple 100%)
+$blue: #007bff
+$cyan: #17a2b8
+$gradient: linear-gradient(45deg, $blue 0%, $cyan 100%)
 $slight-shadow: 0 0 10px rgba(0, 0, 0, .1)
 
 // ________________________________ Viewport breakpoints
@@ -16,7 +16,8 @@ $md: 768px
 
 // ________________________________ Sidebar colors and shadows
 .admin-sidebar
-  background: $purple-gradient
+  z-index: 1000
+  background: $gradient
   box-shadow: $slight-shadow
 
 // ________________________________ Sidebar positioning

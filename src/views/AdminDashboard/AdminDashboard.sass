@@ -1,7 +1,21 @@
+$sidebar-height: 64px
+$sidebar-width: 44px
+
+// ________________________________ Viewport breakpoints
+$md: 768px
+
+// ________________________________ Responsive styling
 .admin-dashboard
   min-height: 100vh
   width: 100vw
   // TODO: Add background color to App.sass when that file is made available via master, so that the background color can have the same values across the app
   background: rgb(250, 250, 250)
+
+.admin-dashboard_content
+  margin-bottom: $sidebar-height !important
+
+@media only screen and (min-width: 768px)
   .admin-dashboard_content
-    min-height: 100vh
+    margin-bottom: 0 !important
+    margin-left: $sidebar-width !important
+

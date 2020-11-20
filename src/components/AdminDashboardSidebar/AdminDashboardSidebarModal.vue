@@ -1,5 +1,10 @@
 <template>
-  <b-modal id="go-home-modal" class="admin-sidebar_modal" centered>
+  <b-modal
+    @ok="returnHome"
+    id="go-home-modal"
+    class="admin-sidebar_modal"
+    centered
+  >
     <p>
       By continuing, you sign out from admin view and return to Dentistimo's
       main website
@@ -8,11 +13,20 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     name: 'AdminSidebarModal',
 
     methods: {
-      // TODO: Add method to push the '/' path on modal 'OK' click once routing has been made available through master
+      ...mapActions(['setSignedIn', 'setDashboardView']),
+
+      returnHome() {
+        // TODO: Change once auth is set up
+        this.setSignedIn(false)
+        this.$router.push('/')
+        this.setDashboardView(null)
+      },
     },
   }
 </script>

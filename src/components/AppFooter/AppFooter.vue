@@ -1,6 +1,6 @@
 <template>
   <footer class="app-footer">
-    <b-container>
+    <b-container v-if="!clinicSignedIn">
       <b-row>
         <b-col>
           <router-link to="/" class="app-footer_brand-logo">
@@ -53,8 +53,11 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     name: 'AppFooter',
+    computed: { ...mapGetters(['clinicSignedIn']) },
   }
 </script>
 
