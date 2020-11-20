@@ -22,20 +22,20 @@
       </li>
     </ul>
 
-    <admin-dashboard-sidebar-modal />
+    <sidebar-modal />
   </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex'
-  import LogoSmallWhite from '../svg/LogoSmallWhite/LogoSmallWhite'
-  import AdminDashboardSidebarModal from './AdminDashboardSidebarModal'
+  import LogoSmallWhite from '../../svg/LogoSmallWhite/LogoSmallWhite'
+  import SidebarModal from './SidebarModal'
 
   export default {
-    name: 'AdminSidebar',
+    name: 'Sidebar',
 
     components: {
-      AdminDashboardSidebarModal,
+      SidebarModal,
       LogoSmallWhite,
     },
 
@@ -67,5 +67,5 @@
 </script>
 
 <style scoped>
-  @import './AdminDashboardSidebar.css';
+  @import 'Sidebar.css';
 </style>
