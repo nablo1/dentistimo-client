@@ -16,7 +16,7 @@
   import { mapActions } from 'vuex'
 
   export default {
-    name: 'AdminSidebarModal',
+    name: 'SidebarModal',
 
     methods: {
       ...mapActions(['setSignedIn', 'setDashboardView']),
