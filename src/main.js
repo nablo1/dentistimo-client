@@ -10,8 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Use vue-mqtt to handle the pub-sub to backend
-// TODO: Define mqtt options and websocket
-Vue.use(VueMqtt, '')
+Vue.use(VueMqtt, 'ws://localhost:5000')
 
 // Use bootstrap for styling the ui
 Vue.use(BootstrapVue)
