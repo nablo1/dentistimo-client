@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import dentalClinic from './modules/dentalClinic'
+import dentalClinicUser from './modules/dentalClinicUser'
 
 // Load Vuex
 Vue.use(Vuex)
@@ -8,6 +8,6 @@ Vue.use(Vuex)
 // Create store
 export default new Vuex.Store({
   modules: {
-    dentalClinic,
+    dentalClinicUser,
   },
 })
