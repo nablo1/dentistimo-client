@@ -1,3 +1,9 @@
+<!--
+Component use case:
+This component is conditionally rendered if an end-user is not signed in,
+and only viewing the Dentistimo webapp as a guest user.
+-->
+
 <template>
   <div>
     <b-card class="mb-4">

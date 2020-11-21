@@ -1,3 +1,8 @@
+<!--
+Component use case:
+This component is conditionally rendered if an end-user is signed in as a patient user.
+-->
+
 <template>
   <div>
     <b-card>

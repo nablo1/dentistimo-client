@@ -1,3 +1,9 @@
+<!--
+Component use case:
+This component acts as the primary navigation for Dentistimo use cases.
+It does not appear in AdminDashboard.vue, where another type of navigation is used.
+-->
+
 <template>
   <header id="appHeader" class="app-header">
     <b-container v-if="!clinicSignedIn">

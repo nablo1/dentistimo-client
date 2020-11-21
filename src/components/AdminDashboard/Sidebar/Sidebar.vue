@@ -1,5 +1,20 @@
+<!--
+Component use case:
+This component allows a dentist clinic end-user to navigate their
+admin dashboard and conditionally render content, using the vuex state.
+
+Available content:
+* CalendarSettings.vue
+* ClinicSettings.vue
+* DentistSettings.vue
+* PatientLog.vue
+
+The end-user can also sign out and go back to dentistimo's '/' using the sidebar nav.
+-->
+
 <template>
   <div class="admin-sidebar">
+    <!-- Link back to '/'. User signs out on click. -->
     <div class="admin-sidebar_brand-logo">
       <b-button
         v-b-modal.go-home-modal
@@ -10,6 +25,7 @@
       </b-button>
     </div>
 
+    <!-- Navigation inside of dashboard -->
     <ul class="admin-sidebar_nav">
       <li
         v-for="(navItem, index) in sidebarNav"

@@ -1,3 +1,8 @@
+<!--
+Component use case:
+This component wraps a sign in form, and is rendered on click from SignedOutContent.vue
+-->
+
 <template>
   <b-card>
     <b-card-body>

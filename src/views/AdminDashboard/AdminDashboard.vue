@@ -1,3 +1,9 @@
+<!--
+Component use case:
+This component acts as a wrapper for all the content
+available to a signed in dental clinic end-user.
+-->
+
 <template>
   <div class="admin-dashboard">
     <sidebar />

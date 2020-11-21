@@ -1,3 +1,10 @@
+<!--
+Component use case:
+This component slides out from the right of the viewport when an end-user clicks
+the hamburger menu in the AppHeader.vue component.
+The purpose of the component is to show more navigation options that would not fit in the AppHeader.
+-->
+
 <template>
   <b-sidebar id="app-header-sidebar" right shadow>
     <div class="pt-4 px-3">
