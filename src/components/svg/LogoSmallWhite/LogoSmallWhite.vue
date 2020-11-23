@@ -1,3 +1,9 @@
+<!--
+Component use case:
+This component is used in the dental clinic's admin dashboard
+to let the end-user know that there is a path back to '/'.
+-->
+
 <template>
   <svg
     width="46"

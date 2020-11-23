@@ -1,6 +1,12 @@
+<!--
+Component use case:
+This component acts as a wrapper for all the content
+available to a signed in dental clinic end-user.
+-->
+
 <template>
   <div class="admin-dashboard">
-    <admin-dashboard-sidebar />
+    <sidebar />
 
     <div class="admin-dashboard_content">
       <!-- Default content for admin dashboard view -->
@@ -52,11 +58,11 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
-  import AdminDashboardSidebar from '@/components/AdminDashboardSidebar/AdminDashboardSidebar'
-  import PatientLog from '@/components/PatientLog/PatientLog'
-  import CalendarSettings from '@/components/CalendarSettings/CalendarSettings'
-  import DentistSettings from '@/components/DentistSettings/DentistSettings'
-  import ClinicSettings from '@/components/ClinicSettings/ClinicSettings'
+  import Sidebar from '@/components/AdminDashboard/Sidebar/Sidebar'
+  import PatientLog from '@/components/AdminDashboard/PatientLog/PatientLog'
+  import CalendarSettings from '@/components/AdminDashboard/CalendarSettings/CalendarSettings'
+  import DentistSettings from '@/components/AdminDashboard/DentistSettings/DentistSettings'
+  import ClinicSettings from '@/components/AdminDashboard/ClinicSettings/ClinicSettings'
 
   export default {
     name: 'AdminDashboard',
@@ -65,7 +71,7 @@
       DentistSettings,
       CalendarSettings,
       PatientLog,
-      AdminDashboardSidebar,
+      Sidebar,
     },
 
     computed: { ...mapGetters(['clinicSignedIn', 'dashboardView']) },

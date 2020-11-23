@@ -1,3 +1,6 @@
+/*
+ This module stores the state of the currently signed in dental clinic (if one exists)
+*/
 // TODO: Import api
 
 const state = {

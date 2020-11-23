@@ -1,3 +1,10 @@
+<!--
+Component use case:
+This component works as an alert, letting the end-user know
+that they're about to leave the admin dashboard for their
+dentist clinic, sign out, and return to '/', Home.vue
+-->
+
 <template>
   <b-modal
     @ok="returnHome"
@@ -16,7 +23,7 @@
   import { mapActions } from 'vuex'
 
   export default {
-    name: 'AdminSidebarModal',
+    name: 'SidebarModal',
 
     methods: {
       ...mapActions(['setSignedIn', 'setDashboardView']),

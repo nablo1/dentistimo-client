@@ -1,3 +1,9 @@
+<!--
+Component use case:
+This component works as secondary navigation for routes that are not
+connected to the primary Dentistimo use cases.
+-->
+
 <template>
   <footer class="app-footer">
     <b-container v-if="!clinicSignedIn">
