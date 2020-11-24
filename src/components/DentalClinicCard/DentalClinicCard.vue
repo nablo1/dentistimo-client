@@ -36,7 +36,7 @@
 
 <script>
   export default {
-    name: 'dentistCard',
+    name: 'DentalClinicCard',
     //TODO: Waiting for the branch to merge in order to incorporate state handling to take props
     props: [''],
     data() {
