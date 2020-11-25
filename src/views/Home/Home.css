@@ -1,0 +1,16 @@
+.pagination-row {
+    height: 50px;
+}
+.cards-row {
+    height: 400px;
+}
+.jumbotron {
+    height: 400px;
+    background-image: url("../../assets/map-placeholder.jpg");
+    background-size: cover;
+}
+.divider{
+    width:50px;
+    height:auto;
+    display:inline-block;
+}
