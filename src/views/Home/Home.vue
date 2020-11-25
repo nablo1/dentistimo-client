@@ -1,8 +1,7 @@
 <template>
 
    <div>
-       <b-jumbotron class="jumbotron"> </b-jumbotron>
-
+       <InteractiveMap/>
         <b-container>
         <b-row>
         </b-row>
@@ -22,11 +21,11 @@
             <b-button pill variant="outline-secondary" size="sm">
                     next <b-icon-caret-right> </b-icon-caret-right>
                 </b-button>
-           
+
         </b-row>
 </b-container>
    </div>
-    
+
 </template>
 
 <style scoped>
@@ -36,9 +35,11 @@
 <script>
 // import dentistCard from '@/components/dentistCard/dentistCard.vue'
 import {mapGetters} from 'vuex'
-
+import InteractiveMap from "@/components/InteractiveMap/InteractiveMap";
 export default {
-    
-    computed: mapGetters(['allClinics'])
+
+    computed: mapGetters(['allClinics']),
+  components: { InteractiveMap }
+
 }
 </script>
