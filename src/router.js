@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AdminDashboard from '@/views/AdminDashboard/AdminDashboard'
-
+import Home from '@/views/Home/Home'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -15,5 +15,10 @@ export default new VueRouter({
       name: 'AdminDashboard',
       component: AdminDashboard,
     },
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,
+    }
   ],
 })
