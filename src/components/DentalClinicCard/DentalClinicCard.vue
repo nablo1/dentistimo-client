@@ -18,7 +18,7 @@
                 <br />
 
                 <!-- Placeholder -->
-                Dentist Clinic Name
+                <p>Clinic Name</p>
               </b-card-text>
               <b-card-text class="dentistAddressCard">
                 <b-icon icon="geo-alt-fill"></b-icon>
@@ -37,7 +37,6 @@
 <script>
   export default {
     name: 'DentalClinicCard',
-    //TODO: Waiting for the branch to merge in order to incorporate state handling to take props
     props: [''],
     data() {
       return {
