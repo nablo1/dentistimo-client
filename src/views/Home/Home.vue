@@ -14,7 +14,7 @@
           lg="4"
           xl="3"
         >
-          <p>{{ clinic.name }}</p>
+          <DentalClinicCard v-bind:clinic="clinic" />
         </b-col>
       </b-row>
 
@@ -39,8 +39,9 @@
   // import dentistCard from '@/components/dentistCard/dentistCard.vue'
   import { mapGetters } from 'vuex'
   import InteractiveMap from '@/components/InteractiveMap/InteractiveMap'
+  import DentalClinicCard from '../../components/DentalClinicCard/DentalClinicCard.vue'
   export default {
     computed: mapGetters(['allClinics']),
-    components: { InteractiveMap },
+    components: { InteractiveMap, DentalClinicCard },
   }
 </script>
