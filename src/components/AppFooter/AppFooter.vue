@@ -10,8 +10,10 @@ connected to the primary Dentistimo use cases.
       <b-row>
         <b-col>
           <router-link to="/" class="app-footer_brand-logo">
-            Dentistimo
+            <header-logo />
+            <dentistimo-text />
           </router-link>
+          <br />
         </b-col>
       </b-row>
       <b-row class="app-footer_nav">
@@ -60,8 +62,11 @@ connected to the primary Dentistimo use cases.
 
 <script>
   import { mapGetters } from 'vuex'
+  import DentistimoText from '../svg/LandingPage/DentistimoText.vue'
+  import HeaderLogo from '../svg/LandingPage/HeaderLogo.vue'
 
   export default {
+    components: { HeaderLogo, DentistimoText },
     name: 'AppFooter',
     computed: { ...mapGetters(['clinicSignedIn']) },
   }
