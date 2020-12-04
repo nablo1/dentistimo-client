@@ -11,7 +11,8 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
         <b-col cols="8" sm="9" md="10" lg="10" xl="10">
           <!-- TODO: Replace 'Dentistimo' with app logos here -->
           <router-link to="/">
-            Dentistimo
+            <header-logo />
+            <dentistimo-text />
           </router-link>
         </b-col>
 
@@ -41,11 +42,13 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
 
 <script>
   import { mapGetters } from 'vuex'
+  import DentistimoText from '../svg/LandingPage/DentistimoText.vue'
+  import HeaderLogo from '../svg/LandingPage/HeaderLogo.vue'
   import AppHeaderSidebar from './AppHeaderSidebar'
 
   export default {
     name: 'AppHeader',
-    components: { AppHeaderSidebar },
+    components: { AppHeaderSidebar, HeaderLogo, DentistimoText },
     computed: { ...mapGetters(['clinicSignedIn']) },
   }
 </script>
