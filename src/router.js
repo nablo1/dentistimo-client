@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AdminDashboard from '@/views/AdminDashboard/AdminDashboard'
 import Home from '@/views/Home/Home'
+import Calendar from '@/views/Calendar'
+
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -19,6 +22,11 @@ export default new VueRouter({
       path: '/',
       name: 'Home',
       component: Home,
-    }
+    },
+    {
+      path: '/calendar',
+      name: 'Calendar',
+      component: Calendar,
+    },
   ],
 })
