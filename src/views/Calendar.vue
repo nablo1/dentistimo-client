@@ -9,7 +9,13 @@
             locale="en-US"
           ></b-calendar>
         </b-col>
-        <b-col> </b-col>
+        <!-- <b-col class="status">
+          <p>
+            Value: <b>'{{ value }}'</b>
+          </p>
+          <p class="mb-0">Result:</p>
+          <pre class="small">{{ context }}</pre></b-col
+        >-->
       </b-row>
     </div>
     <br />
@@ -18,28 +24,28 @@
         <thead>
           <tr>
             <th>
-              <b-button scope="col" squared variant="primary"
-                >8:30-9:00</b-button
+              <b-button scope="col" variant="outline-primary"
+                >08:30-09:00</b-button
               >
             </th>
             <th>
-              <b-button scope="col" squared variant="primary"
-                >9:00-9:30</b-button
+              <b-button scope="col" variant="outline-primary"
+                >09:00-09:30</b-button
               >
             </th>
             <th>
-              <b-button scope="col" squared variant="primary"
-                >9:30-10:00</b-button
+              <b-button scope="col" variant="outline-primary"
+                >09:30-10:00</b-button
               >
             </th>
             <th>
-              <b-button scope="col" squared variant="primary"
+              <b-button scope="col" variant="outline-primary"
                 >10:00-10:30</b-button
               >
             </th>
             <th>
-              <b-button scope="col" squared variant="primary"
-                >11:00-11:30</b-button
+              <b-button scope="col" variant="outline-primary"
+                >10:30-11:00</b-button
               >
             </th>
           </tr>
@@ -47,60 +53,60 @@
         <tbody>
           <tr>
             <th>
-              <b-button scope="col" squared variant="primary"
+              <b-button scope="col" variant="outline-primary"
                 >11:00-11:30</b-button
               >
             </th>
             <th>
-              <b-button scope="col" squared variant="primary"
+              <b-button scope="col" variant="outline-primary"
                 >11:30-12:00</b-button
               >
             </th>
             <th>
-              <b-button scope="col" disabled size="sm" squared variant="primary"
-                >Lunch break</b-button
+              <b-button scope="col" variant="primary" disabled size="sm"
+                >Lunch Break</b-button
               >
             </th>
             <th>
-              <b-button scope="col" squared variant="primary"
+              <b-button scope="col" variant="outline-primary"
                 >13:00-13:30</b-button
               >
             </th>
             <th>
-              <b-button scope="col" squared variant="primary"
-                >13:30-14:00</b-button
+              <b-button scope="col" variant="outline-primary"
+                >08:30-09:00</b-button
               >
             </th>
           </tr>
           <th>
-            <b-button scope="col" squared variant="primary"
+            <b-button scope="col" variant="outline-primary"
               >14:00-14:30</b-button
             >
           </th>
           <th>
-            <b-button scope="col" squared variant="primary"
+            <b-button scope="col" variant="outline-primary"
               >14:30-15:00</b-button
             >
           </th>
           <th>
-            <b-button scope="col" disabled size="md" squared variant="primary"
+            <b-button scope="col" variant="primary" disabled size="sm"
               >Fika Break</b-button
             >
           </th>
           <th>
-            <b-button scope="col" squared variant="primary"
+            <b-button scope="col" variant="outline-primary"
               >15:30-16:00</b-button
             >
           </th>
           <th>
-            <b-button scope="col" squared variant="primary"
+            <b-button scope="col" variant="outline-primary"
               >16:00-16:30</b-button
             >
           </th>
 
           <tr>
             <th>
-              <b-button scope="col" squared variant="primary"
+              <b-button scope="col" variant="outline-primary"
                 >16:30-17:00</b-button
               >
             </th>
@@ -134,22 +140,22 @@
 <style scoped>
   .table {
     text-align: center;
-    background-color: rgb(185, 209, 236);
+  }
+  .status {
+    text-align: center;
   }
   .table-bordered {
     margin-left: auto;
     margin-right: auto;
-    padding: 30px;
-    border: 2px solid black;
+    border: 1px solid rgb(0, 0, 0);
     border-collapse: collapse;
-    background-color: rgb(185, 209, 236);
+    table-layout: fixed;
+    text-align: center;
+    margin: 20px auto;
   }
   .book {
     margin-left: 47%;
     margin-top: 1cm;
     margin-bottom: 1in;
-  }
-  .bookingPage {
-    background-color: rgb(185, 209, 236);
   }
 </style>
