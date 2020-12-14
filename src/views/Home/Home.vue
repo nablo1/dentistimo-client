@@ -42,6 +42,6 @@
   import DentalClinicCard from '../../components/DentalClinicCard/DentalClinicCard.vue'
   export default {
     computed: mapGetters(['allClinics']),
-    components: { InteractiveMap, DentalClinicCard },
+    components: { InteractiveMap, DentalClinicCard }
   }
 </script>
