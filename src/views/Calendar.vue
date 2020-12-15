@@ -4,18 +4,15 @@
       <b-row>
         <b-col class="table" md="auto">
           <b-calendar
-            v-model="value"
+            v-model="date"
             @context="onContext"
             locale="en-US"
           ></b-calendar>
         </b-col>
-        <!-- <b-col class="status">
-          <p>
-            Value: <b>'{{ value }}'</b>
-          </p>
-          <p class="mb-0">Result:</p>
-          <pre class="small">{{ context }}</pre></b-col
-        >-->
+        <b-col class="status">
+          <p class="mb-0">Date:</p>
+          <pre class="small">{{ date }}</pre></b-col
+        >
       </b-row>
     </div>
     <br />
@@ -89,8 +86,8 @@
             >
           </th>
           <th>
-            <b-button scope="col" variant="primary" disabled size="sm"
-              >Fika Break</b-button
+            <b-button scope="col" variant="primary" disabled size="md">
+              Fika Break</b-button
             >
           </th>
           <th>
@@ -126,8 +123,9 @@
   export default {
     data() {
       return {
-        value: '',
+        date: '',
         context: null,
+        myToggle: false,
       }
     },
     methods: {
