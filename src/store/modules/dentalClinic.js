@@ -1,47 +1,21 @@
-// TODO: Import api
+import axios from 'axios';
 
 const state = {
-  clinics: [ // Placeholders for dental clinic cards
-     {
-      id: 1,
-      name: "First Dental Clinic",
-      location: "Gothenburg"
-     },
-     {
-      id: 2,
-      name: "Second Dental Clinic",
-      location: "Gothenburg"
-     },
-     {
-      id: 3,
-      name: "Third Dental Clinic",
-      location:"Gothenburg"
-     },
-     {
-      id: 4,
-      name: "Fourth Dental Clinic",
-      location: "Gothenburg"
-     },
-     {
-      id: 5,
-      name: "Fifth Dental Clinic",
-      location: "Gothenburg"
-     },
-     {
-      id: 6,
-      name: "Sixth Dental Clinic",
-      location: "Gothenburg"
-     }
-
-  ]
+  dentalClinics: []
 }
 
 const getters = {
-  allClinics: (state) => state.clinics
+  allDentalClinics: (state) => state.dentalClinics
 }
 
 const actions = {
-  // TODO: Create an action for sending an API request to GET dental clinic data
+  async getAllClinics({ commit }) {
+    const response = await axios.get(
+      'http://localhost:3000/api/dentalClinics'
+    );
+    commit('setClinics', response.data);
+    console.log(response.data)
+  }
 }
 
 const mutations = {
