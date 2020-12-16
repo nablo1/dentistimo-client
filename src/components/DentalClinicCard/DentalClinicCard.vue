@@ -18,13 +18,13 @@
                 <br />
 
                 <!-- Placeholder -->
-                <p>Clinic Name</p>
+                <p>{{dentalClinic.name}}</p>
               </b-card-text>
               <b-card-text class="dentistAddressCard">
                 <b-icon icon="geo-alt-fill"></b-icon>
 
                 <!--Placeholder -->
-                Location
+                {{dentalClinic.address}}
               </b-card-text>
             </b-card-body>
           </b-col>
@@ -35,9 +35,10 @@
 </template>
 
 <script>
+
   export default {
-    name: 'DentalClinicCard',
-    props: [''],
+    name: 'DentalClinicCards',
+    props: ['dentalClinic'],
     data() {
       return {
         message: '',
