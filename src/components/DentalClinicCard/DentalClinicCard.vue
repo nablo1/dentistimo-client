@@ -2,7 +2,7 @@
   <div>
     <b-card no-body class="overflow-hidden dentistCard">
       <!--Placeholder link -->
-      <a class="stretched-link " href>
+      <a class="stretched-link " :href="dentalClinic._id">
         <b-row no-gutters>
           <b-col md="6">
             <!--Placeholder image -->
