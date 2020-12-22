@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import AdminDashboard from '@/views/AdminDashboard/AdminDashboard'
 import Home from '@/views/Home/Home'
 import Calendar from '@/views/Calendar'
+import DentalClinic from '@/views/DentalClinic'
 
 
 Vue.use(VueRouter)
@@ -28,5 +29,10 @@ export default new VueRouter({
       name: 'Calendar',
       component: Calendar,
     },
+    {
+      path: '/:dentalClinicId',
+      name: 'DentalClinic',
+      component: DentalClinic,
+    }
   ],
 })
