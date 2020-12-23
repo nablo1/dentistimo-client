@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import AdminDashboard from '@/views/AdminDashboard/AdminDashboard'
 import Home from '@/views/Home/Home'
 import Calendar from '@/views/Calendar'
+import RegisterClinic from '@/views/RegisterClinic'
 import DentalClinic from '@/views/DentalClinic'
 
 
@@ -28,6 +29,11 @@ export default new VueRouter({
       path: '/calendar',
       name: 'Calendar',
       component: Calendar,
+    },
+    {
+      path: '/registerclinic',
+      name: 'RegisterClinic',
+      component: RegisterClinic
     },
     {
       path: '/:dentalClinicId',
