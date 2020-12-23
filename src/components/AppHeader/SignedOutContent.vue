@@ -47,7 +47,7 @@ and only viewing the Dentistimo webapp as a guest user.
         <b-button @click="authDentalClinic" variant="outline-primary" block>
           Sign in
         </b-button>
-        <b-button variant="primary" block>
+        <b-button to="/registerclinic" variant="primary" block>
           Register your clinic
         </b-button>
       </b-card-body>
