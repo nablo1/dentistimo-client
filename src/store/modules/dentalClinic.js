@@ -9,12 +9,18 @@ const getters = {
 }
 
 const actions = {
-  async getAllClinics({ commit }) {
-    const response = await axios.get(
-      'http://localhost:3000/api/dentalClinics'
-    );
-    commit('setClinics', response.data);
-    console.log(response.data)
+  getAllClinics() {
+    axios.get('http://localhost:3000/api/dentalClinics')
+    .then((response) => {
+      this.dentalClinics = response.data
+    })
+    .catch((error) => {
+      this.message = error.message
+      console.error(error)
+      this.dentalClinics = []
+      // TODO: display error message
+    })
+
   }
 }
 
