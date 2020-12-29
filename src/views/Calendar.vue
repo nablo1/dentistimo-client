@@ -1,138 +1,77 @@
 <template>
-  <div class="bookingPage">
-    <div>
-      <b-row>
-        <b-col class="table" md="auto">
-          <b-calendar
-            v-model="date"
-            @context="onContext"
-            locale="en-US"
-          ></b-calendar>
-        </b-col>
-        <b-col class="status">
-          <p class="mb-0">Date:</p>
-          <pre class="small">{{ date }}</pre></b-col
+  <div>
+     <div>
+      <label for="example-datepicker">Choose a date</label>
+      <b-form-datepicker id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
+    </div>
+    <!-- <b-col
+          v-for="date in dates"
+          :key="date._id"
+          cols="12"
+          sm="12"
+          md="6"
+          lg="4"
+          xl="3"
         >
-      </b-row>
-    </div>
-    <br />
-    <div>
-      <table class="table-bordered" md="auto">
-        <thead>
-          <tr>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >08:30-09:00</b-button
-              >
-            </th>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >09:00-09:30</b-button
-              >
-            </th>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >09:30-10:00</b-button
-              >
-            </th>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >10:00-10:30</b-button
-              >
-            </th>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >10:30-11:00</b-button
-              >
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >11:00-11:30</b-button
-              >
-            </th>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >11:30-12:00</b-button
-              >
-            </th>
-            <th>
-              <b-button scope="col" variant="primary" disabled size="sm"
-                >Lunch Break</b-button
-              >
-            </th>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >13:00-13:30</b-button
-              >
-            </th>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >08:30-09:00</b-button
-              >
-            </th>
-          </tr>
-          <th>
-            <b-button scope="col" variant="outline-primary"
-              >14:00-14:30</b-button
-            >
-          </th>
-          <th>
-            <b-button scope="col" variant="outline-primary"
-              >14:30-15:00</b-button
-            >
-          </th>
-          <th>
-            <b-button scope="col" variant="primary" disabled size="md">
-              Fika Break</b-button
-            >
-          </th>
-          <th>
-            <b-button scope="col" variant="outline-primary"
-              >15:30-16:00</b-button
-            >
-          </th>
-          <th>
-            <b-button scope="col" variant="outline-primary"
-              >16:00-16:30</b-button
-            >
-          </th>
+          <Date v-bind:date="date" />
+          <br>
+        </b-col> -->
 
-          <tr>
-            <th>
-              <b-button scope="col" variant="outline-primary"
-                >16:30-17:00</b-button
-              >
-            </th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div><b-button class="book" squared variant="primary">Book</b-button></div>
+        <b-button @click="checkDates"> Continue</b-button>
+  
+
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+//import Date from '@/components/Date'
+const swal2 = require('sweetalert2')
   export default {
     data() {
       return {
-        date: '',
-        context: null,
-        myToggle: false,
+       value:'',
+       dates: []
       }
     },
     methods: {
-      onContext(ctx) {
-        this.context = ctx
+      getAllDates() {
+        axios.get('http://localhost:3000/api/dentalClinics/' + this.dentalClnicId + '/dates')
+          .then((response) => {
+          this.dates = response.data
+          console.log(this.dates)
+          })
+          .catch((error) => {
+          this.message = error.message
+          console.error(error)
+          this.dates = null
+          })
       },
+      checkDates() {
+        for(var i = 0; i < this.dates.length; i++) {
+          if(this.dates[i].date == this.value) {
+            console.log(this.dates[i]._id)
+            var dateId = this.dates[i]._id
+            swal2.fire({
+              html:
+                '<a href="calendar/' + dateId + '/timeslots">Click here</a> ' +
+                'to see the available time slots in this date',
+              showCloseButton: true
+            })
+            break;
+          } else {
+            swal2.fire('There no available time slots in this date')
+          }
+        }
+      } 
     },
+    mounted() {
+      this.getAllDates()
+    },
+    created() {
+      this.dentalClnicId = this.$route.params.dentalClinicId
+  }
+    
   }
 </script>
 <style scoped>

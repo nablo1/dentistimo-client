@@ -13,7 +13,7 @@
      <l-marker
        :key="index"
        v-for="(dentalClinic, index) in dentalClinics"
-       :lat-lng="latLngFunction(dentalClinic.coordinates[0].latitude, dentalClinic.coordinates[0].longitude)"
+       :lat-lng="latLngFunction(dentalClinic.coordinates.latitude, dentalClinic.coordinates.longitude)"
     
      >
        <l-popup :options="{ permanent: true, interactive: true }"> </l-popup>
@@ -80,8 +80,8 @@
  
      }
    },
-   mounted() {
-     console.log(this.getAllClinics())
+   created() {
+     this.getAllClinics()
    }
  }
 </script>

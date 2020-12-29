@@ -32,7 +32,7 @@ Vue.use(VueMqtt, 'ws://localhost:9001', {clientId: 'WebClient-' + parseInt(Math.
 
 Vue.config.productionTip = false
 
-
+ 
 
 
 

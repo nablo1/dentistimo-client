@@ -14,11 +14,17 @@
               <h3>Owned by: {{ dentalClinic.owner }} </h3>
               <h3> Address: {{ dentalClinic.address }} {{dentalClinic.city}}</h3>
               <h3>{{ dentalClinic.dentists }} Dentists available </h3>
+              <h3>Opening Hours: </h3>
+               <h5>Monday: {{ dentalClinic.openingHours.monday }}</h5>
+               <h5>Tuesday: {{ dentalClinic.openingHours.tuesday }}</h5>
+               <h5>Wedensday: {{ dentalClinic.openingHours.wednesday }}</h5>
+               <h5>Thursday: {{ dentalClinic.openingHours.thursday }}</h5>
+               <h5>Friday: {{ dentalClinic.openingHours.friday }}</h5>              
               <div>
                 <b-button
                   type="button"
                   variant="outline-primary"
-                  :href="dentalClinic._id + '/timeslots'"
+                  :href="dentalClinic._id + '/calendar'"
                   >Book an appoitment</b-button
                 >
                 &nbsp;
@@ -27,6 +33,14 @@
                   variant="outline-primary"
                   href="/"
                   >Back to home page</b-button
+                >
+                <br><br>
+                <b-button
+                  v-if="checkSignedIn()"
+                  type="button"
+                  variant="outline-primary"
+                  href="/"
+                  >This button is for admins only</b-button
                 >
                 <br><br><br>
               </div>
@@ -40,6 +54,7 @@
 </div>
 </body>
 </template>
+
 <script>
 import axios from 'axios';
 export default {
@@ -60,6 +75,12 @@ export default {
           console.error(error)
           this.dentalClinic = null
           })
+      },
+      checkSignedIn() {
+        if (localStorage.getItem('jwt') == null) {
+          return false
+        }
+        return true
       }
   },
   created() {
@@ -96,15 +117,6 @@ body {
  margin-top: -50px;
  margin-bottom: 40px;
 }
-.logForm {
- margin-bottom: 25px;
- border-radius: 5px;
-}
-.logForm input {
- height: 42px;
- margin-bottom: 20px;
- border-radius: 5px;
-}
 .btn {
  background-color: black;
  color: white;
@@ -116,46 +128,8 @@ body {
  height: auto;
  display: inline-block;
 }
-.empColor {
- color: white;
-}
-/* BLUR BACKGROUND SECTION */
- 
-.bg-image {
- /* The image used */
- /* Add the blur effect */
- filter: blur(8px);
- -webkit-filter: blur(8px);
- /* Full height */
- height: 100%;
- width: 100%;
- 
- /* Center and scale the image nicely */
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
-}
-.backgroundImg {
- width: 100%;
- height: 100%;
-}
-.center {
- margin: auto;
- margin-top: 50px;
- width: 50%;
- padding: 10px;
-}
-.carousel-inner img {
- width: 100%;
- height: 100%;
-}
-.pushDown {
- margin-bottom: 300px;
- border-top: transparent;
-}
-.push {
- margin-bottom: 100px;
-}
+
+
 </style>
  
  
