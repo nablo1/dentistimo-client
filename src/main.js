@@ -28,7 +28,10 @@ import 'leaflet/dist/leaflet.css'
   queueQoSZero: true,
 } */
 
-Vue.use(VueMqtt, 'ws://localhost:9001', {clientId: 'WebClient-' + parseInt(Math.random() * 100000)});
+const ourClient = 'WebClient-' + parseInt(Math.random() * 100000)
+export {ourClient}
+
+Vue.use(VueMqtt, 'ws://localhost:9001', {clientId: ourClient}); 
 
 Vue.config.productionTip = false
 
