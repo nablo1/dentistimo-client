@@ -8,18 +8,17 @@
               <img src="https://i.ibb.co/6ZrYYfF/Logo-Vector.png" />
             </div>
             <div class="col-12">
-              <div class="logForm">
-               <form @submit.prevent="loginAdmin()">
+              <div class="logForm"> 
                   <div class="logform">
-                    <input v-model="passcode.code" type="password" placeholder="Enter passcode" name="passcode" required><br>
+                        <label for="example-datepicker">Choose a date</label>
+                        <b-form-datepicker id="example-datepicker" v-model="newDate.date" class="mb-2"></b-form-datepicker>
                     <center>
-                     <b-button type="submit" variant="primary">Sign in</b-button>
+                     <b-button @click="addToCalendar()" type="submit" variant="primary">Add to calendar</b-button>
                      &nbsp;
                     <b-button type="button" variant="outline-primary" href="/">Cancel</b-button>
                     </center><br>
 
                   </div>
-                </form>
               </div>
             </div>
           </div>
@@ -34,33 +33,41 @@
 import axios from 'axios';
 const swal2 = require('sweetalert2')
 export default {
-  data() {
-    return {
-      passcode: {
-        code: ''
-      }
-    }
-  },
-  methods: {
-    async loginAdmin() {
-      try {
-        const response = await axios.post('http://localhost:3000/api/login', this.passcode)
-        const token = response.data.token
-        localStorage.setItem('jwt', token)
-        if (token) {
-          this.$router.push('/')
-          location.reload()
+    data() {
+        return {
+           newDate: {
+               date: ''
+           }
         }
-      } catch (err) {
-          swal2.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!'
-          })
-          console.log(err.response)
-      }
+    },
+    methods: {
+        addToCalendar() {
+            axios.post('http://localhost:3000/api/dentalClinics/' + this.dentalClnicId + '/dates', this.newDate)
+            .then(response => {
+                console.log(response.data)
+                swal2.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Date added to calendar',
+                showConfirmButton: false,
+                timer: 1500
+                })
+            
+            })
+            .catch(error => {
+                console.log(error)
+                swal2.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+                })
+            })
+        }
+    },
+    created() {
+      this.dentalClnicId = this.$route.params.dentalClinicId
     }
-  }
+
 }
 </script>
 
@@ -108,5 +115,6 @@ body {
   height: auto;
   display: inline-block;
 }
+
 
 </style>

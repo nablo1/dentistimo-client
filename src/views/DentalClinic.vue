@@ -34,14 +34,6 @@
                   href="/"
                   >Back to home page</b-button
                 >
-                <br><br>
-                <b-button
-                  v-if="checkSignedIn()"
-                  type="button"
-                  variant="outline-primary"
-                  href="/"
-                  >This button is for admins only</b-button
-                >
                 <br><br><br>
               </div>
             </div>
@@ -75,12 +67,6 @@ export default {
           console.error(error)
           this.dentalClinic = null
           })
-      },
-      checkSignedIn() {
-        if (localStorage.getItem('jwt') == null) {
-          return false
-        }
-        return true
       }
   },
   created() {

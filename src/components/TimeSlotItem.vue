@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { ourClient } from '@/main'
+//import { ourClient } from '@/main'
 import axios from 'axios'
 export default {
   name: 'timeSlot',
@@ -20,16 +20,13 @@ export default {
   methods: {
     sendBookingRequest() {
       this.createRequestId()
-      console.log(this.dentalClnicId)
-      console.log(this.date.date)
-      console.log(this.timeSlot.timeSlot)
-      console.log(ourClient)
-      console.log(this.request.number)
+      console.log(this.requestNumber)
 
       //TODO: issuance and requestid
       //publish things to mqtt
     },
     showMsgBox() {
+      this.getLastRequest()
       this.box = ''
       this.$bvModal
         .msgBoxConfirm('Do you want to book this time slot?', {
@@ -85,6 +82,11 @@ export default {
         .get('http://localhost:3000/api/requests')
         .then(response => {
           this.request = response.data
+          if(!this.request) {
+            this.requestNumber = 1
+          } else {
+            this.requestNumber = this.request.number +1
+          }
         })
         .catch(error => {
           this.message = error.message
