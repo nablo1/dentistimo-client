@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .col {
   text-align: center;
   margin-left: auto;
