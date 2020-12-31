@@ -1,18 +1,20 @@
 <template>
-    <div>
-        <b-button @click="showMsgBox()">{{timeSlot.timeSlot}} </b-button>
-    </div>
+  <div>
+    <b-button class="timeButton" pill variant="primary" @click="showMsgBox()"
+      >{{ timeSlot.timeSlot }}
+    </b-button>
+  </div>
 </template>
 
 <script>
-import {ourClient} from '@/main'
-import axios from 'axios';
+import { ourClient } from '@/main'
+import axios from 'axios'
 export default {
   name: 'timeSlot',
   props: ['timeSlot'],
   data() {
     return {
-      box: ''
+      box: '',
     }
   },
   methods: {
@@ -23,11 +25,11 @@ export default {
       console.log(this.timeSlot.timeSlot)
       console.log(ourClient)
       console.log(this.request.number)
-      
+
       //TODO: issuance and requestid
       //publish things to mqtt
     },
-     showMsgBox() {
+    showMsgBox() {
       this.box = ''
       this.$bvModal
         .msgBoxConfirm('Do you want to book this time slot?', {
@@ -39,61 +41,66 @@ export default {
           cancelTitle: 'NO',
           footerClass: 'p-2',
           hideHeaderClose: false,
-          centered: true
+          centered: true,
         })
-        .then((value) => {
+        .then(value => {
           this.box = value
           if (value) {
             this.sendBookingRequest()
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err)
         })
     },
     getDate() {
-      axios.get('http://localhost:3000/api/dentalClinics/' + this.dentalClnicId + '/dates/' + this.dateId)
-          .then((response) => {
+      axios
+        .get(
+          'http://localhost:3000/api/dentalClinics/' +
+            this.dentalClnicId +
+            '/dates/' +
+            this.dateId
+        )
+        .then(response => {
           this.date = response.data
-          })
-          .catch((error) => {
+        })
+        .catch(error => {
           this.message = error.message
           console.error(error)
           this.date = null
-          })
+        })
     },
     createRequestId() {
-      axios.post('http://localhost:3000/api/requests')
+      axios
+        .post('http://localhost:3000/api/requests')
         .then(response => {
           console.log(response.data)
         })
         .catch(error => {
           console.log(error)
         })
-
     },
     getLastRequest() {
-      axios.get('http://localhost:3000/api/requests')
-          .then((response) => {
+      axios
+        .get('http://localhost:3000/api/requests')
+        .then(response => {
           this.request = response.data
-          })
-          .catch((error) => {
+        })
+        .catch(error => {
           this.message = error.message
           console.error(error)
           this.request = null
-          })
-    }
+        })
+    },
   },
   created() {
-        this.dentalClnicId = this.$route.params.dentalClinicId,
-        this.dateId = this.$route.params.dateId
+    ;(this.dentalClnicId = this.$route.params.dentalClinicId),
+      (this.dateId = this.$route.params.dateId)
   },
   mounted() {
-    this.getDate(),
-    this.getLastRequest()
-  }
+    this.getDate(), this.getLastRequest()
+  },
 }
 </script>
 <style>
-
 </style>
