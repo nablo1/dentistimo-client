@@ -21,6 +21,10 @@
       <router-link class="Link" v-bind:to="'/'"
         >Back to the Home page ⇨
       </router-link>
+      <br>
+      <router-link v-if="checkSignedIn()" class="Link" v-bind:to="'/' + this.dentalClnicId + '/calendar/' + this.dateId + '/timeSlots/add'"
+        >Add time slots to this date
+      </router-link>
     </div>
   </div>
 </template>
@@ -57,9 +61,15 @@ export default {
           this.timeSlots = null
         })
     },
+     checkSignedIn() {
+        if (localStorage.getItem('jwt') == null) {
+          return false
+        }
+        return true
+      }
   },
   created() {
-    ;(this.dentalClnicId = this.$route.params.dentalClinicId),
+      (this.dentalClnicId = this.$route.params.dentalClinicId),
       (this.dateId = this.$route.params.dateId)
   },
   mounted() {

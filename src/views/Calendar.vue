@@ -17,7 +17,7 @@
                      &nbsp;
                     <b-button type="button" variant="outline-primary" href="/">Cancel</b-button>
                     <br><br>
-                    <b-button v-if="checkSignedIn()" type="button" variant="outline-primary" :href="'/' + this.dentalClnicId + '/calendar/add-days'">Add days to your calendar</b-button>
+                    <b-button v-if="checkSignedIn()" type="button" variant="outline-primary" :href="'/' + this.dentalClnicId + '/calendar/add'">Add days to your calendar</b-button>
                     </center><br>
                   </div>
               </div>
