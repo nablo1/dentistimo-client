@@ -11,12 +11,12 @@
               <div class="logForm">
                <form @submit.prevent="createTimeSlot()">
                   <div class="logform">
-                      <label >Enter the time in the correct format</label>
-                    <input v-model="newTimeSlot.timeSlot" type="input" placeholder="HH:mm" required><br>
+                      <label >Enter the time you want to add</label>
+                    <input v-model="newTimeSlot.timeSlot" type="time" placeholder="HH:mm" required><br>
                     <center>
-                     <b-button type="submit" variant="primary">Add time slot</b-button>
+                     <b-button type="submit" variant="primary">Add</b-button>
                      &nbsp;
-                    <b-button type="button" variant="outline-primary" href="/">Cancel</b-button>
+                    <b-button type="button" variant="outline-primary"  :href="'/' + this.dentalClinicId + '/calendar/' + this.dateId + '/timeslots'">Back to time slots</b-button>
                     </center><br>
 
                   </div>
@@ -33,7 +33,7 @@
 
 <script>
 import axios from 'axios';
-const swal2 = require('sweetalert2')
+const swal = require('sweetalert')
 export default {
     data() {
         return {
@@ -44,30 +44,19 @@ export default {
     },
     methods: {
         createTimeSlot() {
-            axios.post('http://localhost:3000/api/dentalClinics/' + this.dentalClnicId + '/dates/' + this.dateId + '/timeSlots', this.newTimeSlot)
+            axios.post('http://localhost:3000/api/dentalClinics/' + this.dentalClinicId + '/dates/' + this.dateId + '/timeSlots', this.newTimeSlot)
             .then(response => {
                 console.log(response.data)
-                swal2.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Date added to calendar',
-                showConfirmButton: false,
-                timer: 1500
-                })
-            
+                swal('Success', 'Time slot added to this date', 'success')
             })
             .catch(error => {
                 console.log(error)
-                swal2.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!'
-                })
+                swal('Error', 'Something Went Wrong', 'error')
             })
         }
     },
     created() {
-      this.dentalClnicId = this.$route.params.dentalClinicId,
+      this.dentalClinicId = this.$route.params.dentalClinicId,
       this.dateId = this.$route.params.dateId
   }
     

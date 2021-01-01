@@ -13,9 +13,9 @@
                         <label for="example-datepicker">Choose a date</label>
                         <b-form-datepicker id="example-datepicker" v-model="newDate.date" class="mb-2"></b-form-datepicker>
                     <center>
-                     <b-button @click="addToCalendar()" type="submit" variant="primary">Add to calendar</b-button>
+                     <b-button @click="addToCalendar()" type="submit" variant="primary">Add</b-button>
                      &nbsp;
-                    <b-button type="button" variant="outline-primary" href="/">Cancel</b-button>
+                    <b-button type="button" variant="outline-primary" :href=" '/' +this.dentalClinicId + '/calendar'">Back to calendar</b-button>
                     </center><br>
 
                   </div>
@@ -31,7 +31,7 @@
 
 <script>
 import axios from 'axios';
-const swal2 = require('sweetalert2')
+const swal = require('sweetalert')
 export default {
     data() {
         return {
@@ -42,30 +42,20 @@ export default {
     },
     methods: {
         addToCalendar() {
-            axios.post('http://localhost:3000/api/dentalClinics/' + this.dentalClnicId + '/dates', this.newDate)
+            axios.post('http://localhost:3000/api/dentalClinics/' + this.dentalClinicId + '/dates', this.newDate)
             .then(response => {
                 console.log(response.data)
-                swal2.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Date added to calendar',
-                showConfirmButton: false,
-                timer: 1500
-                })
+                swal('Success', 'Date added to calendar', 'success')
             
             })
             .catch(error => {
                 console.log(error)
-                swal2.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!'
-                })
+                swal('Error', 'Something Went Wrong', 'error')
             })
         }
     },
     created() {
-      this.dentalClnicId = this.$route.params.dentalClinicId
+      this.dentalClinicId = this.$route.params.dentalClinicId
     }
 
 }
