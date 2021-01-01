@@ -7,7 +7,9 @@ import RegisterClinic from '@/views/RegisterClinic'
 import DentalClinic from '@/views/DentalClinic'
 import Login from '@/views/Login'
 import TimeSlots from '@/views/TimeSlots'
-
+import AddToCalendar from '@/views/AddToCalendar'
+import AddTimeSlots from '@/views/AddTimeSlots'
+import UpdateClinic from '@/views/UpdateClinic'
 
 Vue.use(VueRouter)
 
@@ -36,12 +38,12 @@ const router = new VueRouter({
       path: '/registerclinic',
       name: 'RegisterClinic',
       component: RegisterClinic,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: true },
     },
     {
       path: '/login',
       name: 'Login',
-      component: Login
+      component: Login,
     },
     {
       path: '/:dentalClinicId',
@@ -52,8 +54,25 @@ const router = new VueRouter({
       path: '/:dentalClinicId/calendar/:dateId/timeslots',
       name: 'TimeSlots',
       component: TimeSlots,
-    }
-
+    },
+    {
+      path: '/:dentalClinicId/calendar/add',
+      name: 'AddToCalendar',
+      component: AddToCalendar,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/:dentalClinicId/calendar/:dateId/timeslots/add',
+      name: 'AddTimeSlots',
+      component: AddTimeSlots,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/:dentalClinicId/update-info',
+      name: 'UpdateClinic',
+      component: UpdateClinic,
+      meta: { requiresAuth: true },
+    },
   ],
 })
 
@@ -61,7 +80,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (localStorage.getItem('jwt') == null) {
       next({
-        path: '/login'
+        path: '/login',
       })
     } else {
       next()
@@ -71,6 +90,4 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-
 export default router
-

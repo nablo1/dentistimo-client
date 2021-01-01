@@ -13,27 +13,22 @@
                   <label for="example-datepicker">Choose a date</label>
                   <b-form-datepicker
                     id="example-datepicker"
-                    v-model="value"
+                    v-model="newDate.date"
                     class="mb-2"
                   ></b-form-datepicker>
                   <center>
                     <b-button
-                      @click="checkDates()"
+                      @click="addToCalendar()"
                       type="submit"
                       variant="primary"
-                      >Select</b-button
+                      >Add</b-button
                     >
                     &nbsp;
-                    <b-button type="button" variant="outline-primary" href="/"
-                      >Cancel</b-button
-                    >
-                    <br /><br />
                     <b-button
-                      v-if="checkSignedIn()"
                       type="button"
                       variant="outline-primary"
-                      :href="'/' + this.dentalClinicId + '/calendar/add'"
-                      >Add days to your calendar</b-button
+                      :href="'/' + this.dentalClinicId + '/calendar'"
+                      >Back to calendar</b-button
                     >
                   </center>
                   <br />
@@ -49,88 +44,41 @@
 
 <script>
   import axios from 'axios'
-  //import Date from '@/components/Date'
-  const swal2 = require('sweetalert2')
+  const swal = require('sweetalert')
   export default {
     data() {
       return {
-        value: '',
-        dates: [],
+        newDate: {
+          date: '',
+        },
       }
     },
     methods: {
-      getAllDates() {
+      addToCalendar() {
         axios
-          .get(
+          .post(
             'http://localhost:3000/api/dentalClinics/' +
               this.dentalClinicId +
-              '/dates'
+              '/dates',
+            this.newDate
           )
           .then(response => {
-            this.dates = response.data
-            console.log(this.dates)
+            console.log(response.data)
+            swal('Success', 'Date added to calendar', 'success')
           })
           .catch(error => {
-            this.message = error.message
-            console.error(error)
-            this.dates = null
+            console.log(error)
+            swal('Error', 'Something Went Wrong', 'error')
           })
       },
-      checkDates() {
-        for (var i = 0; i < this.dates.length; i++) {
-          if (this.dates[i].date == this.value) {
-            console.log(this.dates[i]._id)
-            var dateId = this.dates[i]._id
-            swal2.fire({
-              html:
-                '<a href="calendar/' +
-                dateId +
-                '/timeslots">Click here</a> ' +
-                'to see the available time slots in this date',
-              showCloseButton: true,
-            })
-            break
-          } else {
-            swal2.fire('There no available time slots in this date')
-          }
-        }
-      },
-      checkSignedIn() {
-        if (localStorage.getItem('jwt') == null) {
-          return false
-        }
-        return true
-      },
-    },
-    mounted() {
-      this.getAllDates()
     },
     created() {
       this.dentalClinicId = this.$route.params.dentalClinicId
     },
   }
 </script>
+
 <style scoped>
-  .table {
-    text-align: center;
-  }
-  .status {
-    text-align: center;
-  }
-  .table-bordered {
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid rgb(0, 0, 0);
-    border-collapse: collapse;
-    table-layout: fixed;
-    text-align: center;
-    margin: 20px auto;
-  }
-  .book {
-    margin-left: 47%;
-    margin-top: 1cm;
-    margin-bottom: 1in;
-  }
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
   body {
     background: url('https://i.ibb.co/r0kSL7Z/jj-ying-7-JX0-bfiux-Q-unsplash.jpg');

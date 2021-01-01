@@ -16,15 +16,13 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
           </router-link>
         </b-col>
 
-        
-          <b-button v-if="!checkSignedIn()"  href="/login" variant="light">
-            Clinic sign in
-          </b-button>
+        <b-button v-if="!checkSignedIn()" href="/login" variant="light">
+          Clinic sign in
+        </b-button>
 
-          <b-button v-if="checkSignedIn()" @click="signOut()" variant="light">
-            Sign out
-          </b-button>
-          
+        <b-button v-if="checkSignedIn()" @click="signOut()" variant="light">
+          Sign out
+        </b-button>
       </b-row>
     </b-container>
     <app-header-sidebar />
@@ -43,17 +41,16 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
     computed: { ...mapGetters(['clinicSignedIn']) },
     methods: {
       checkSignedIn() {
-      if (localStorage.getItem('jwt') == null) {
-        return false
-      }
-      return true
+        if (localStorage.getItem('jwt') == null) {
+          return false
+        }
+        return true
+      },
+      signOut() {
+        localStorage.removeItem('jwt')
+        location.reload()
+      },
     },
-    signOut() {
-      localStorage.removeItem('jwt')
-      location.reload()
-    }
-
-    }
   }
 </script>
 

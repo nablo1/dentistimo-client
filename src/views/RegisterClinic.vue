@@ -1,9 +1,13 @@
 <template>
-  <div id="pic" class="text-center" >
+  <div id="pic" class="text-center">
     <br />
-    <div >
+    <div>
       <br /><br />
-      <b-card class="text-center" style="max-width: 65%; margin:auto;" border-variant="info">
+      <b-card
+        class="text-center"
+        style="max-width: 65%; margin:auto;"
+        border-variant="info"
+      >
         <br />
         <h5>Dental Clinic *</h5>
         <b-input
@@ -156,8 +160,8 @@
       @dismissed="dismissCountDown = 0"
       @dismiss-count-down="countDownChanged"
     >
-      Welcome to Dentistimo! Please return to the home page to view your clinic.
-    </b-alert><br>
+      Welcome to Dentistimo! Please return to the home page to view your clinic. </b-alert
+    ><br />
     <b-button variant="info" v-on:click="addClinic()" @click="showAlert"
       >Register</b-button
     >

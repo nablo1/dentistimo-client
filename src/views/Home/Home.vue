@@ -3,7 +3,8 @@
     <InteractiveMap />
     <b-container>
       <b-row> </b-row>
-      <br> <br>
+      <br />
+      <br />
 
       <b-row class="cards-row">
         <b-col
@@ -16,7 +17,7 @@
           xl="3"
         >
           <DentalClinicCard v-bind:dentalClinic="dentalClinic" />
-          <br>
+          <br />
         </b-col>
       </b-row>
     </b-container>
@@ -28,40 +29,40 @@
 </style>
 
 <script>
-  
-  import axios from 'axios';
+  import axios from 'axios'
   import InteractiveMap from '@/components/InteractiveMap/InteractiveMap'
   import DentalClinicCard from '../../components/DentalClinicCard/DentalClinicCard.vue'
   export default {
     //computed: mapGetters(['allClinics']),
     data() {
       return {
-        dentalClinics: []
+        dentalClinics: [],
       }
     },
     components: { InteractiveMap, DentalClinicCard },
     methods: {
       getAllClinics() {
-        axios.get('http://localhost:3000/api/dentalClinics')
-        .then((response) => {
-          this.dentalClinics = response.data
-          console.log(this.dentalClinics)
-        })
-        .catch((error) => {
-          this.message = error.message
-          console.error(error)
-          this.dentalClinics = []
-          // TODO: display error message
-        })
-
+        axios
+          .get('http://localhost:3000/api/dentalClinics')
+          .then(response => {
+            this.dentalClinics = response.data
+            console.log(this.dentalClinics)
+          })
+          .catch(error => {
+            this.message = error.message
+            console.error(error)
+            this.dentalClinics = []
+            // TODO: display error message
+          })
       },
-      publishSomething() { //just to publishing to mqtt
+      publishSomething() {
+        //just to publishing to mqtt
         this.$mqtt.publish('booking/request', 'yooo')
         console.log('published the msg')
-      }
+      },
     },
     created() {
       this.getAllClinics()
-    }
+    },
   }
 </script>

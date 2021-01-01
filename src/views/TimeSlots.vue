@@ -21,90 +21,109 @@
       <router-link class="Link" v-bind:to="'/'"
         >Back to the Home page ⇨
       </router-link>
+      <br />
+      <router-link
+        v-if="checkSignedIn()"
+        class="Link"
+        v-bind:to="
+          '/' +
+            this.dentalClinicId +
+            '/calendar/' +
+            this.dateId +
+            '/timeSlots/add'
+        "
+        >Add time slots to this date
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import TimeSlotItem from '@/components/TimeSlotItem'
-export default {
-  data() {
-    return {
-      timeSlots: [],
-    }
-  },
-  components: {
-    TimeSlotItem,
-  },
-  methods: {
-    getAllTimeSlots() {
-      axios
-        .get(
-          'http://localhost:3000/api/dentalClinics/' +
-            this.dentalClnicId +
-            '/dates/' +
-            this.dateId +
-            '/timeSlots'
-        )
-        .then(response => {
-          this.timeSlots = response.data
-          console.log(this.timeSlots)
-        })
-        .catch(error => {
-          this.message = error.message
-          console.error(error)
-          this.timeSlots = null
-        })
+  import axios from 'axios'
+  import TimeSlotItem from '@/components/TimeSlotItem'
+  export default {
+    data() {
+      return {
+        timeSlots: [],
+      }
     },
-  },
-  created() {
-    ;(this.dentalClnicId = this.$route.params.dentalClinicId),
-      (this.dateId = this.$route.params.dateId)
-  },
-  mounted() {
-    this.getAllTimeSlots()
-  },
-}
+    components: {
+      TimeSlotItem,
+    },
+    methods: {
+      getAllTimeSlots() {
+        axios
+          .get(
+            'http://localhost:3000/api/dentalClinics/' +
+              this.dentalClinicId +
+              '/dates/' +
+              this.dateId +
+              '/timeSlots'
+          )
+          .then(response => {
+            this.timeSlots = response.data
+            console.log(this.timeSlots)
+          })
+          .catch(error => {
+            this.message = error.message
+            console.error(error)
+            this.timeSlots = null
+          })
+      },
+      checkSignedIn() {
+        if (localStorage.getItem('jwt') == null) {
+          return false
+        }
+        return true
+      },
+    },
+    created() {
+      ;(this.dentalClinicId = this.$route.params.dentalClinicId),
+        (this.dateId = this.$route.params.dateId)
+    },
+    mounted() {
+      this.getAllTimeSlots()
+    },
+  }
 </script>
 
 <style scoped>
-.col {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0.5cm;
-}
-.time {
-  text-align: center;
-  margin-top: 4cm;
-}
+  .col {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5cm;
+  }
+  .time {
+    text-align: center;
+    margin-top: 4cm;
+  }
 
-.card {
-  margin-left: 29%;
-  margin-right: 29%;
-  margin-bottom: 19%;
-  text-align: center;
-  border: 4px;
-}
-#theme {
-  width: 100%;
-  height: 100%;
-  background-image: url('../assets/theme.jpg');
-  text-align: center;
-  background-attachment: fixed;
-}
-.h1 {
-  color: rgb(0, 0, 0);
-  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
-    sans-serif;
-  text-align: center;
-}
-.Link {
-  font-weight: bold;
-  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
-    sans-serif;
-  color: rgb(17, 18, 19);
-  text-align: center;
-}
+  .card {
+    margin-left: 29%;
+    margin-right: 29%;
+    margin-bottom: 19%;
+    text-align: center;
+    border: 4px;
+  }
+  #theme {
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/theme.jpg');
+    text-align: center;
+    background-attachment: fixed;
+  }
+  .h1 {
+    color: rgb(0, 0, 0);
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
+      sans-serif;
+    text-align: center;
+  }
+  .Link {
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
+      sans-serif;
+    color: rgb(17, 18, 19);
+    text-align: center;
+  }
 </style>

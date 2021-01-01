@@ -14,7 +14,7 @@ import { Icon } from 'leaflet'
 // Vue Leaflet imports
 import 'leaflet/dist/leaflet.css'
 
- // var bookingRequest = 'booking/request'
+// var bookingRequest = 'booking/request'
 // var bookingResponse = 'booking/response'
 
 /* const options = {
@@ -28,17 +28,12 @@ import 'leaflet/dist/leaflet.css'
   queueQoSZero: true,
 } */
 
-const ourClient = 'WebClient-' + parseInt(Math.random() * 100000)
-export {ourClient}
+const ourClient = parseInt(Math.random() * 100000)
+export { ourClient }
 
-Vue.use(VueMqtt, 'ws://localhost:9001', {clientId: ourClient}); 
+Vue.use(VueMqtt, 'ws://localhost:9001', { clientId: 'WebClient-' + ourClient })
 
 Vue.config.productionTip = false
-
- 
-
-
-
 
 /* const mqtt = require('mqtt');
 const url = 'mqtt://127.0.0.1';
@@ -76,8 +71,6 @@ Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 })
-
-
 
 // Use bootstrap for styling the ui
 Vue.use(BootstrapVue)

@@ -9,22 +9,29 @@
             </div>
             <div class="col-12">
               <div class="logForm">
-                <form @submit.prevent="loginAdmin()">
+                <form @submit.prevent="createTimeSlot()">
                   <div class="logform">
+                    <label>Enter the time you want to add</label>
                     <input
-                      v-model="passcode.code"
-                      type="password"
-                      placeholder="Enter passcode"
-                      name="passcode"
+                      v-model="newTimeSlot.timeSlot"
+                      type="time"
+                      placeholder="HH:mm"
                       required
                     /><br />
                     <center>
-                      <b-button type="submit" variant="primary"
-                        >Sign in</b-button
-                      >
+                      <b-button type="submit" variant="primary">Add</b-button>
                       &nbsp;
-                      <b-button type="button" variant="outline-primary" href="/"
-                        >Cancel</b-button
+                      <b-button
+                        type="button"
+                        variant="outline-primary"
+                        :href="
+                          '/' +
+                            this.dentalClinicId +
+                            '/calendar/' +
+                            this.dateId +
+                            '/timeslots'
+                        "
+                        >Back to time slots</b-button
                       >
                     </center>
                     <br />
@@ -41,37 +48,39 @@
 
 <script>
   import axios from 'axios'
-  const swal2 = require('sweetalert2')
+  const swal = require('sweetalert')
   export default {
     data() {
       return {
-        passcode: {
-          code: '',
+        newTimeSlot: {
+          timeSlot: '',
         },
       }
     },
     methods: {
-      async loginAdmin() {
-        try {
-          const response = await axios.post(
-            'http://localhost:3000/api/login',
-            this.passcode
+      createTimeSlot() {
+        axios
+          .post(
+            'http://localhost:3000/api/dentalClinics/' +
+              this.dentalClinicId +
+              '/dates/' +
+              this.dateId +
+              '/timeSlots',
+            this.newTimeSlot
           )
-          const token = response.data.token
-          localStorage.setItem('jwt', token)
-          if (token) {
-            this.$router.push('/')
-            location.reload()
-          }
-        } catch (err) {
-          swal2.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
+          .then(response => {
+            console.log(response.data)
+            swal('Success', 'Time slot added to this date', 'success')
           })
-          console.log(err.response)
-        }
+          .catch(error => {
+            console.log(error)
+            swal('Error', 'Something Went Wrong', 'error')
+          })
       },
+    },
+    created() {
+      ;(this.dentalClinicId = this.$route.params.dentalClinicId),
+        (this.dateId = this.$route.params.dateId)
     },
   }
 </script>
