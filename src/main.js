@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 import router from './router'
-//import VueMqtt from 'vue-mqtt'
+import VueMqtt from 'vue-mqtt'
 
 // Bootstrap imports
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
@@ -28,10 +28,10 @@ import 'leaflet/dist/leaflet.css'
   queueQoSZero: true,
 } */
 
-const ourClient = 'WebClient-' + parseInt(Math.random() * 100000)
+const ourClient =  parseInt(Math.random() * 100000)
 export {ourClient}
 
-//Vue.use(VueMqtt, 'ws://localhost:9001', {clientId: ourClient}); 
+Vue.use(VueMqtt, 'ws://localhost:9001', {clientId:'WebClient-' + ourClient}); 
 
 Vue.config.productionTip = false
 
