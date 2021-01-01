@@ -1,27 +1,27 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const state = {
-  dentalClinics: []
+  dentalClinics: [],
 }
 
 const getters = {
-  allDentalClinics: (state) => state.dentalClinics
+  allDentalClinics: state => state.dentalClinics,
 }
 
 const actions = {
   getAllClinics() {
-    axios.get('http://localhost:3000/api/dentalClinics')
-    .then((response) => {
-      this.dentalClinics = response.data
-    })
-    .catch((error) => {
-      this.message = error.message
-      console.error(error)
-      this.dentalClinics = []
-      // TODO: display error message
-    })
-
-  }
+    axios
+      .get('http://localhost:3000/api/dentalClinics')
+      .then(response => {
+        this.dentalClinics = response.data
+      })
+      .catch(error => {
+        this.message = error.message
+        console.error(error)
+        this.dentalClinics = []
+        // TODO: display error message
+      })
+  },
 }
 
 const mutations = {
