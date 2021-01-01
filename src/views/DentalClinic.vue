@@ -34,6 +34,13 @@
                   href="/"
                   >Back to home page</b-button
                 >
+                <b-button
+                  type="button"
+                  variant="outline-primary"
+                  :href="dentalClinic._id + '/update-info'"
+                  v-if="checkSignedIn()"
+                  >Update clinic info</b-button
+                >
                 <br><br><br>
               </div>
             </div>
@@ -67,7 +74,14 @@ export default {
           console.error(error)
           this.dentalClinic = null
           })
-      }
+      },
+      checkSignedIn() {
+        if (localStorage.getItem('jwt') == null) {
+          return false
+        }
+        return true
+}
+
   },
   created() {
   this.dentalClnicId = this.$route.params.dentalClinicId

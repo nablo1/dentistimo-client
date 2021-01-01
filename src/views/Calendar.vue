@@ -17,7 +17,7 @@
                      &nbsp;
                     <b-button type="button" variant="outline-primary" href="/">Cancel</b-button>
                     <br><br>
-                    <b-button v-if="checkSignedIn()" type="button" variant="outline-primary" :href="'/' + this.dentalClnicId + '/calendar/add'">Add days to your calendar</b-button>
+                    <b-button v-if="checkSignedIn()" type="button" variant="outline-primary" :href="'/' + this.dentalClinicId + '/calendar/add'">Add days to your calendar</b-button>
                     </center><br>
                   </div>
               </div>
@@ -43,7 +43,7 @@ const swal2 = require('sweetalert2')
     },
     methods: {
       getAllDates() {
-        axios.get('http://localhost:3000/api/dentalClinics/' + this.dentalClnicId + '/dates')
+        axios.get('http://localhost:3000/api/dentalClinics/' + this.dentalClinicId + '/dates')
           .then((response) => {
           this.dates = response.data
           console.log(this.dates)
@@ -82,7 +82,7 @@ const swal2 = require('sweetalert2')
       this.getAllDates()
     },
     created() {
-      this.dentalClnicId = this.$route.params.dentalClinicId
+      this.dentalClinicId = this.$route.params.dentalClinicId
     }
     
   }

@@ -22,7 +22,7 @@
         >Back to the Home page ⇨
       </router-link>
       <br>
-      <router-link v-if="checkSignedIn()" class="Link" v-bind:to="'/' + this.dentalClnicId + '/calendar/' + this.dateId + '/timeSlots/add'"
+      <router-link v-if="checkSignedIn()" class="Link" v-bind:to="'/' + this.dentalClinicId + '/calendar/' + this.dateId + '/timeSlots/add'"
         >Add time slots to this date
       </router-link>
     </div>
@@ -46,7 +46,7 @@ export default {
       axios
         .get(
           'http://localhost:3000/api/dentalClinics/' +
-            this.dentalClnicId +
+            this.dentalClinicId +
             '/dates/' +
             this.dateId +
             '/timeSlots'
@@ -69,7 +69,7 @@ export default {
       }
   },
   created() {
-      (this.dentalClnicId = this.$route.params.dentalClinicId),
+      (this.dentalClinicId = this.$route.params.dentalClinicId),
       (this.dateId = this.$route.params.dateId)
   },
   mounted() {

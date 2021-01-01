@@ -9,6 +9,7 @@ import Login from '@/views/Login'
 import TimeSlots from '@/views/TimeSlots'
 import AddToCalendar from '@/views/AddToCalendar'
 import AddTimeSlots from '@/views/AddTimeSlots'
+import UpdateClinic from '@/views/UpdateClinic'
 
 
 Vue.use(VueRouter)
@@ -65,6 +66,12 @@ const router = new VueRouter({
       path: '/:dentalClinicId/calendar/:dateId/timeslots/add',
       name: 'AddTimeSlots',
       component: AddTimeSlots,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/:dentalClinicId/update-info',
+      name: 'UpdateClinic',
+      component: UpdateClinic,
       meta: { requiresAuth: true }
     }
 
