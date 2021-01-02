@@ -14,56 +14,10 @@ import { Icon } from 'leaflet'
 // Vue Leaflet imports
 import 'leaflet/dist/leaflet.css'
 
-// var bookingRequest = 'booking/request'
-// var bookingResponse = 'booking/response'
-
-/* const options = {
-  keepalive: 60,
-  clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
-  reschedulePings: true,
-  protocolId: 'MQTT',
-  clean: true,
-  reconnectPeriod: 1000,
-  connectTimeout: 30 * 1000,
-  queueQoSZero: true,
-} */
-
 const ourClient = parseInt(Math.random() * 100000)
 export { ourClient }
 
 Vue.use(VueMqtt, 'ws://localhost:9001', { clientId: 'WebClient-' + ourClient })
-
-Vue.config.productionTip = false
-
-/* const mqtt = require('mqtt');
-const url = 'mqtt://127.0.0.1';
-const options = {
-  port: 5000,
-  clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8)
-};
-
-
-
-const client = mqtt.connect(url, options);
-var bookingTopic = 'BookingRequest'
-var msg = 'This is a booking request btw'
-
-client.on('connect', function() { // When connected
-
-  // subscribe to a topic
-   client.subscribe('hello/world', function() {
-    // when a message arrives, do something with it
-    client.on('message', function(topic, message, packet) {
-      console.log("Received '" + message + "' on '" + topic + "'");
-    });
-  }); 
-
-  // publish a message to a topic
-  client.publish(bookingTopic, msg, function() {
-    console.log("Message is published");
-    client.end(); // Close the connection when published
-  });
-}); */
 
 delete Icon.Default.prototype._getIconUrl
 Icon.Default.mergeOptions({

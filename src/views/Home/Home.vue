@@ -46,7 +46,6 @@
           .get('http://localhost:3000/api/dentalClinics')
           .then(response => {
             this.dentalClinics = response.data
-            console.log(this.dentalClinics)
           })
           .catch(error => {
             this.message = error.message
@@ -54,11 +53,6 @@
             this.dentalClinics = []
             // TODO: display error message
           })
-      },
-      publishSomething() {
-        //just to publishing to mqtt
-        this.$mqtt.publish('booking/request', 'yooo')
-        console.log('published the msg')
       },
     },
     created() {

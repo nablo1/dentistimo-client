@@ -20,7 +20,9 @@
           )
         "
       >
-        <l-popup :options="{ permanent: true, interactive: true }"> </l-popup>
+        <l-popup :options="{ permanent: true, interactive: true }">
+          <b-button @click="getAvailableClinics()"> bt</b-button>
+        </l-popup>
       </l-marker>
     </l-map>
   </div>
@@ -36,6 +38,7 @@
     name: 'Example',
     props: {
       dentalClinics: Array,
+      timeSlots: Array,
     },
     components: {
       LMap,
@@ -79,12 +82,29 @@
             this.message = error.message
             console.error(error)
             this.dentalClinics = []
-            // TODO: display error message
           })
+      },
+      getAllTimeSlots() {
+        axios
+          .get('http://localhost:3000/api/timeSlots')
+          .then(response => {
+            this.timeSlots = response.data
+          })
+          .catch(error => {
+            this.message = error.message
+            console.error(error)
+            this.timeSlots = []
+          })
+      },
+      getAvailableClinics() {
+        for (var i = 0; i < this.timeSlots.length; i++) {
+          var avaiableClinics = this.timeSlots[i].dentalClinic
+          console.log(avaiableClinics)
+        }
       },
     },
     created() {
-      this.getAllClinics()
+      this.getAllClinics(), this.getAllTimeSlots()
     },
   }
 </script>
