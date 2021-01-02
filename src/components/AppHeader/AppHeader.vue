@@ -8,8 +8,7 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
   <header id="appHeader" class="app-header">
     <b-container v-if="!clinicSignedIn">
       <b-row class="py-2">
-        <b-col cols="8" sm="9" md="10" lg="10" xl="10">
-          <!-- TODO: Replace 'Dentistimo' with app logos here -->
+        <b-col cols="10" sm="6" md="8" lg="9" xl="9">
           <router-link to="/">
             <header-logo />
             <dentistimo-text />
@@ -20,8 +19,11 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
           Clinic sign in
         </b-button>
 
-        <b-button v-if="checkSignedIn()" @click="signOut()" variant="light">
+        <b-button class="mr-1" v-if="checkSignedIn()" @click="signOut()" variant="light">
           Sign out
+        </b-button>
+        <b-button v-if="checkSignedIn()" href="/registerclinic" variant="light">
+          Register Clinic
         </b-button>
       </b-row>
     </b-container>
