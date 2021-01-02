@@ -19,7 +19,7 @@
                   <h3>Opening Hours:</h3>
                   <h5>Monday: {{ dentalClinic.openingHours.monday }}</h5>
                   <h5>Tuesday: {{ dentalClinic.openingHours.tuesday }}</h5>
-                  <h5>Wedensday: {{ dentalClinic.openingHours.wednesday }}</h5>
+                  <h5>Wednesday: {{ dentalClinic.openingHours.wednesday }}</h5>
                   <h5>Thursday: {{ dentalClinic.openingHours.thursday }}</h5>
                   <h5>Friday: {{ dentalClinic.openingHours.friday }}</h5>
                   <div>
@@ -27,12 +27,13 @@
                       type="button"
                       variant="outline-primary"
                       :href="dentalClinic._id + '/calendar'"
-                      >Book an appoitment</b-button
+                      >Book an appointment</b-button
                     >
                     &nbsp;
                     <b-button type="button" variant="outline-primary" href="/"
                       >Back to home page</b-button
                     >
+                    &nbsp;
                     <b-button
                       type="button"
                       variant="outline-primary"
