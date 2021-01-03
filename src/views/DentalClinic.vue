@@ -5,7 +5,7 @@
         <div class="col-sm-6 main-section">
           <div class="modal-content fixPos">
             <div class="cusImage">
-              <img src="https://i.ibb.co/6ZrYYfF/Logo-Vector.png" />
+              <img src="LogoVector.ico" />
             </div>
             <div>
               <div>
@@ -112,7 +112,7 @@
   .cusImage img {
     height: 115px;
     width: 88px;
-    box-shadow: 0px 0px 2px;
+    box-shadow: 0px 0px 0px;
     margin-top: -50px;
     margin-bottom: 40px;
   }

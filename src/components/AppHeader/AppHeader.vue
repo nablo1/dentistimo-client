@@ -19,7 +19,12 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
           Clinic sign in
         </b-button>
 
-        <b-button class="mr-1" v-if="checkSignedIn()" @click="signOut()" variant="light">
+        <b-button
+          class="mr-1"
+          v-if="checkSignedIn()"
+          @click="signOut()"
+          variant="light"
+        >
           Sign out
         </b-button>
         <b-button v-if="checkSignedIn()" href="/registerclinic" variant="light">
