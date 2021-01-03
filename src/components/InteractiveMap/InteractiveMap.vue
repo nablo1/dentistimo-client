@@ -21,7 +21,8 @@
         "
       >
         <l-popup :options="{ permanent: true, interactive: true }">
-          <b-button @click="getAvailableClinics()"> bt</b-button>
+          <b>{{ dentalClinic.name }}</b> <br />
+          {{ checkAvailability(dentalClinic._id) }}
         </l-popup>
       </l-marker>
     </l-map>
@@ -37,8 +38,8 @@
     //TODO: Incorporate state handling
     name: 'Example',
     props: {
-      dentalClinics: Array,
-      timeSlots: Array,
+      /*  dentalClinics: Array,
+      timeSlots: Array, */
     },
     components: {
       LMap,
@@ -60,6 +61,9 @@
           zoomSnap: 0.5,
         },
         showMap: true,
+        dentalClinics: Array,
+        timeSlots: Array,
+        availableClinics: [],
       }
     },
     methods: {
@@ -96,10 +100,15 @@
             this.timeSlots = []
           })
       },
-      getAvailableClinics() {
+      checkAvailability(clinicId) {
+        var availableClinics = new Array()
         for (var i = 0; i < this.timeSlots.length; i++) {
-          var avaiableClinics = this.timeSlots[i].dentalClinic
-          console.log(avaiableClinics)
+          availableClinics.push(this.timeSlots[i].dentalClinic)
+        }
+        if (availableClinics.includes(clinicId)) {
+          return 'This clinic has free time slots'
+        } else {
+          return 'Unfortunately there are no available time slots in this clinic at the moment'
         }
       },
     },
@@ -117,5 +126,9 @@
 
   .lmap {
     height: 90%;
+  }
+  .icon-style {
+    height: 100%;
+    width: 10%;
   }
 </style>

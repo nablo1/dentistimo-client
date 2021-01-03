@@ -203,21 +203,17 @@
             dentists: this.dentists,
             address: this.address,
             city: this.city,
-            coordinates: [
-              {
-                longitude: this.longitude,
-                latitude: this.latitude,
-              },
-            ],
-            openingHours: [
-              {
-                monday: this.monday,
-                tuesday: this.tuesday,
-                wednesday: this.wednesday,
-                thursday: this.thursday,
-                friday: this.friday,
-              },
-            ],
+            coordinates: {
+              longitude: this.longitude,
+              latitude: this.latitude,
+            },
+            openingHours: {
+              monday: this.monday,
+              tuesday: this.tuesday,
+              wednesday: this.wednesday,
+              thursday: this.thursday,
+              friday: this.friday,
+            },
           })
           .then(response => {
             this.dentalClinics.push('/dentalClinics')
