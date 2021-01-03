@@ -41,6 +41,9 @@
 <script>
   import axios from 'axios'
   import TimeSlotItem from '@/components/TimeSlotItem'
+
+  const swal = require('sweetalert')
+
   export default {
     data() {
       return {
@@ -83,6 +86,21 @@
     },
     mounted() {
       this.getAllTimeSlots()
+      this.$mqtt.subscribe('booking/response')
+    },
+    mqtt: {
+      'booking/response'(message) {
+        var msg = message.toString()
+        console.log(msg)
+        swal({
+          text: msg,
+          button: true,
+        }).then(resOkay => {
+          if (resOkay) {
+            location.reload()
+          }
+        })
+      },
     },
   }
 </script>

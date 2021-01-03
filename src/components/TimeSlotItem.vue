@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  //import { ourClient } from '@/main'
+  import { ourClient } from '@/main'
   import axios from 'axios'
   export default {
     name: 'timeSlot',
@@ -21,9 +21,26 @@
       sendBookingRequest() {
         this.createRequestId()
         console.log(this.requestNumber)
+        this.publishPlease()
+      },
+      getIssuance() {
+        const current = new Date()
+        const issuanceGen =
+          current.getHours() +
+          ' ' +
+          current.getMinutes() +
+          ' ' +
+          current.getSeconds() +
+          ' ' +
+          current.getMilliseconds()
+        const issuance = issuanceGen.replace(/\s+/g, '').trim()
+        return issuance
+      },
+      publishPlease() {
+        var message = `{"userid":"${ourClient}", "requestid":"${this.requestNumber}", "issuance":"${this.getIssuance()}", "date":"${this.date.date}", "time":"${this.timeSlot.timeSlot}", "timeSlot_id":"${this.timeSlot._id}"}`
 
-        //TODO: issuance and requestid
-        //publish things to mqtt
+        this.$mqtt.publish('booking/request', message)
+        console.log('message'+message)
       },
       showMsgBox() {
         this.getLastRequest()
