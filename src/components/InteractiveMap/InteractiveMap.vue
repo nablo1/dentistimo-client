@@ -100,15 +100,6 @@
             this.timeSlots = []
           })
       },
-      getAvailableClinics() {
-        for (var i = 0; i < this.timeSlots.length; i++) {
-          var availableClinic = this.timeSlots[i].dentalClinic
-          this.availableClinics.push(availableClinic)
-          // console.log(this.availableClinics)
-        }
-        console.log(this.availableClinics)
-        return this.availableClinics
-      },
       checkAvailability(clinicId) {
         var availableClinics = new Array()
         for (var i = 0; i < this.timeSlots.length; i++) {
