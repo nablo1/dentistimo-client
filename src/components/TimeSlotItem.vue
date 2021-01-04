@@ -36,7 +36,7 @@
         const issuance = issuanceGen.replace(/\s+/g, '').trim()
         return issuance
       },
-      publishPlease() {
+      publishPlease() { 
         var message = `{"userid":"${ourClient}", "requestid":"${
           this.requestNumber
         }", "issuance":"${this.getIssuance()}", "date":"${
@@ -48,7 +48,7 @@
         this.$mqtt.publish('booking/request', message)
         console.log('message' + message)
       },
-      showMsgBox() {
+      showMsgBox() { //confirmation alert
         this.getLastRequest()
         this.box = ''
         this.$bvModal
@@ -90,7 +90,7 @@
             this.date = null
           })
       },
-      createRequestId() {
+      createRequestId() { 
         axios
           .post('http://localhost:3000/api/requests')
           .then(response => {
@@ -100,7 +100,7 @@
             console.log(error)
           })
       },
-      getLastRequest() {
+      getLastRequest() { 
         axios
           .get('http://localhost:3000/api/requests')
           .then(response => {
@@ -119,7 +119,7 @@
       },
     },
     created() {
-      ;(this.dentalClnicId = this.$route.params.dentalClinicId),
+        (this.dentalClnicId = this.$route.params.dentalClinicId),
         (this.dateId = this.$route.params.dateId)
     },
     mounted() {
