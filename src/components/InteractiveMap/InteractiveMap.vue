@@ -35,12 +35,6 @@
   import axios from 'axios'
 
   export default {
-    //TODO: Incorporate state handling
-    name: 'Example',
-    props: {
-      /*  dentalClinics: Array,
-      timeSlots: Array, */
-    },
     components: {
       LMap,
       LTileLayer,
@@ -62,8 +56,7 @@
         },
         showMap: true,
         dentalClinics: Array,
-        timeSlots: Array,
-        availableClinics: [],
+        timeSlots: Array
       }
     },
     methods: {
@@ -101,14 +94,14 @@
           })
       },
       checkAvailability(clinicId) {
-        var availableClinics = new Array()
+        var availableClinics = new Array
         for (var i = 0; i < this.timeSlots.length; i++) {
           availableClinics.push(this.timeSlots[i].dentalClinic)
         }
         if (availableClinics.includes(clinicId)) {
           return 'This clinic has free time slots'
         } else {
-          return 'Unfortunately there are no available time slots in this clinic at the moment'
+          return 'Unfortunately there are no available time slots at the moment'
         }
       },
     },
