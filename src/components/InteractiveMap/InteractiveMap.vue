@@ -35,12 +35,6 @@
   import axios from 'axios'
 
   export default {
-    //TODO: Incorporate state handling
-    name: 'Example',
-    props: {
-      /*  dentalClinics: Array,
-      timeSlots: Array, */
-    },
     components: {
       LMap,
       LTileLayer,
@@ -63,7 +57,6 @@
         showMap: true,
         dentalClinics: Array,
         timeSlots: Array,
-        availableClinics: [],
       }
     },
     methods: {
@@ -77,6 +70,7 @@
         return latLng(lat, lng)
       },
       getAllClinics() {
+        //api request to get dental clinics data
         axios
           .get('http://localhost:3000/api/dentalClinics')
           .then(response => {
@@ -89,6 +83,7 @@
           })
       },
       getAllTimeSlots() {
+        //api request to get time slots data
         axios
           .get('http://localhost:3000/api/timeSlots')
           .then(response => {
@@ -100,6 +95,9 @@
             this.timeSlots = []
           })
       },
+
+      /* Loop through all time slots, and check if the dental clinic wih this clinicId is registered with any of them,
+       so we can display the clinics that have available time slots */
       checkAvailability(clinicId) {
         var availableClinics = new Array()
         for (var i = 0; i < this.timeSlots.length; i++) {
@@ -108,7 +106,7 @@
         if (availableClinics.includes(clinicId)) {
           return 'This clinic has free time slots'
         } else {
-          return 'Unfortunately there are no available time slots in this clinic at the moment'
+          return 'Unfortunately there are no available time slots at the moment'
         }
       },
     },

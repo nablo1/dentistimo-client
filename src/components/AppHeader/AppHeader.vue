@@ -16,7 +16,7 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
         </b-col>
 
         <b-button v-if="!checkSignedIn()" href="/login" variant="light">
-          Clinic sign in
+          Admin sign in
         </b-button>
 
         <b-button
@@ -28,7 +28,7 @@ It does not appear in AdminDashboard.vue, where another type of navigation is us
           Sign out
         </b-button>
         <b-button v-if="checkSignedIn()" href="/registerclinic" variant="light">
-          Register Clinic
+          Register New Clinic
         </b-button>
       </b-row>
     </b-container>

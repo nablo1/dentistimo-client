@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import AdminDashboard from '@/views/AdminDashboard/AdminDashboard'
 import Home from '@/views/Home/Home'
 import Calendar from '@/views/Calendar'
 import RegisterClinic from '@/views/RegisterClinic'
@@ -19,11 +18,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: [
     // Path to dental clinic admin dashboard
-    {
-      path: '/clinic-admin',
-      name: 'AdminDashboard',
-      component: AdminDashboard,
-    },
     {
       path: '/',
       name: 'Home',
@@ -77,6 +71,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  // authentecation meta used for certain routes that only admins are authorized to access
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (localStorage.getItem('jwt') == null) {
       next({

@@ -60,6 +60,7 @@
     },
     methods: {
       getAllDates() {
+        //api request to get all registered dates
         axios
           .get(
             'http://localhost:3000/api/dentalClinics/' +
@@ -77,6 +78,10 @@
           })
       },
       checkDates() {
+        /* check if the selected date is registered in the database and contains time slots,
+          if it is registered the user can use the link in the alert to check the time slots,
+          if not show the user that there are no time slots in this date
+       */
         for (var i = 0; i < this.dates.length; i++) {
           if (this.dates[i].date == this.value) {
             console.log(this.dates[i]._id)
@@ -96,6 +101,7 @@
         }
       },
       checkSignedIn() {
+        //to display buttons that should only be visible to admins
         if (localStorage.getItem('jwt') == null) {
           return false
         }

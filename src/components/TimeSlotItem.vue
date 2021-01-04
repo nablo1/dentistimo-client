@@ -37,12 +37,19 @@
         return issuance
       },
       publishPlease() {
-        var message = `{"userid":"${ourClient}", "requestid":"${this.requestNumber}", "issuance":"${this.getIssuance()}", "date":"${this.date.date}", "time":"${this.timeSlot.timeSlot}", "timeSlot_id":"${this.timeSlot._id}"}`
+        var message = `{"userid":"${ourClient}", "requestid":"${
+          this.requestNumber
+        }", "issuance":"${this.getIssuance()}", "date":"${
+          this.date.date
+        }", "time":"${this.timeSlot.timeSlot}", "timeSlot_id":"${
+          this.timeSlot._id
+        }"}`
 
         this.$mqtt.publish('booking/request', message)
-        console.log('message'+message)
+        console.log('message' + message)
       },
       showMsgBox() {
+        //confirmation alert
         this.getLastRequest()
         this.box = ''
         this.$bvModal
