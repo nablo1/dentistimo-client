@@ -56,7 +56,7 @@
         },
         showMap: true,
         dentalClinics: Array,
-        timeSlots: Array
+        timeSlots: Array,
       }
     },
     methods: {
@@ -94,7 +94,7 @@
           })
       },
       checkAvailability(clinicId) {
-        var availableClinics = new Array
+        var availableClinics = new Array()
         for (var i = 0; i < this.timeSlots.length; i++) {
           availableClinics.push(this.timeSlots[i].dentalClinic)
         }
