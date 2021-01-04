@@ -22,8 +22,14 @@
             >
           </b-col>
           <b-col class="col" cols="12" sm="12" md="6" lg="4" xl="3">
-            <b-button class="disable2" disabled size="sm" pill variant="primary"
-              >Fika break 15:00-15:30</b-button
+            <b-button
+              class="disable2"
+              disabled
+              size="sm"
+              pill
+              variant="primary"
+            >
+              Fika break 15:00-15:30</b-button
             >
           </b-col>
         </b-row>
@@ -155,8 +161,10 @@ export default {
 }
 .disable {
   font-size: 0.8em;
+  text-align: center;
 }
 .disable2 {
   font-size: 0.8em;
+  text-align: center;
 }
 </style>
