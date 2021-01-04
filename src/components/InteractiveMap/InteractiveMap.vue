@@ -69,7 +69,8 @@
       latLngFunction(lat, lng) {
         return latLng(lat, lng)
       },
-      getAllClinics() { //api request to get dental clinics data
+      getAllClinics() {
+        //api request to get dental clinics data
         axios
           .get('http://localhost:3000/api/dentalClinics')
           .then(response => {
@@ -81,7 +82,8 @@
             this.dentalClinics = []
           })
       },
-      getAllTimeSlots() { //api request to get time slots data
+      getAllTimeSlots() {
+        //api request to get time slots data
         axios
           .get('http://localhost:3000/api/timeSlots')
           .then(response => {
@@ -96,8 +98,8 @@
 
       /* Loop through all time slots, and check if the dental clinic wih this clinicId is registered with any of them,
        so we can display the clinics that have available time slots */
-      checkAvailability(clinicId) { 
-        var availableClinics = new Array
+      checkAvailability(clinicId) {
+        var availableClinics = new Array()
         for (var i = 0; i < this.timeSlots.length; i++) {
           availableClinics.push(this.timeSlots[i].dentalClinic)
         }

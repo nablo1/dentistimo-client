@@ -51,6 +51,10 @@
       }
     },
     methods: {
+      /* The developement team has initialized a pass code that's hardcoded and given to the product owner, or admins
+        and can be updated in a later time.
+        once the api request is sent a token is saved in the local storage and lasts for one hour
+        */
       async loginAdmin() {
         try {
           const response = await axios.post(

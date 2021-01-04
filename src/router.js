@@ -71,6 +71,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  // authentecation meta used for certain routes that only admins are authorized to access
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (localStorage.getItem('jwt') == null) {
       next({
