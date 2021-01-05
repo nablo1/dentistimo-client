@@ -57,7 +57,9 @@
           <h5>Coordinates</h5>
           <h6>
             (Hint: You can convert your address to coordinates by using
-            <a target=”_blank” href="https://www.latlong.net/convert-address-to-lat-long.html"
+            <a
+              target="”_blank”"
+              href="https://www.latlong.net/convert-address-to-lat-long.html"
               >this website</a
             >)
           </h6>
