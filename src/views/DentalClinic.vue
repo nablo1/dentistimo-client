@@ -66,7 +66,7 @@
     methods: {
       getDentalClinic() {
         axios
-          .get('http://localhost:3000/api/dentalClinics/' + this.dentalClnicId)
+          .get('http://localhost:3000/api/dentalClinics/' + this.dentalClinicId)
           .then(response => {
             this.dentalClinic = response.data
           })
@@ -77,6 +77,7 @@
           })
       },
       checkSignedIn() {
+        //to display buttons that should only be visible to admins
         if (localStorage.getItem('jwt') == null) {
           return false
         }
@@ -84,7 +85,7 @@
       },
     },
     created() {
-      this.dentalClnicId = this.$route.params.dentalClinicId
+      this.dentalClinicId = this.$route.params.dentalClinicId
     },
     mounted() {
       this.getDentalClinic()

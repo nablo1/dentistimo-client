@@ -57,7 +57,9 @@
           <h5>Coordinates</h5>
           <h6>
             (Hint: You can convert your address to coordinates by using
-            <a href="https://www.latlong.net/convert-address-to-lat-long.html"
+            <a
+              target="”_blank”"
+              href="https://www.latlong.net/convert-address-to-lat-long.html"
               >this website</a
             >)
           </h6>
@@ -171,6 +173,7 @@
 
 <script>
   import axios from 'axios'
+  const swal = require('sweetalert')
 
   export default {
     data() {
@@ -218,10 +221,12 @@
           .then(response => {
             this.dentalClinics.push('/dentalClinics')
             console.log(response)
+            swal('Success', 'New dental clinic registered', 'success')
           })
           .catch(error => {
             this.message = error.message
             console.error(error)
+            swal('Error', 'Something Went Wrong', 'error')
           })
       },
       countDownChanged(dismissCountDown) {
