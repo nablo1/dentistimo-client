@@ -39,7 +39,8 @@
       publishPlease() {
         var message = `{"userid":"${ourClient}", "requestid":"${
           this.requestNumber
-        }", "issuance":"${this.getIssuance()}", "date":"${
+        }", "dentistid":"${this.dentalClinicId}",
+         "issuance":"${this.getIssuance()}", "date":"${
           this.date.date
         }", "time":"${this.timeSlot.timeSlot}", "timeSlot_id":"${
           this.timeSlot._id
@@ -78,7 +79,7 @@
         axios
           .get(
             'http://localhost:3000/api/dentalClinics/' +
-              this.dentalClnicId +
+              this.dentalClinicId +
               '/dates/' +
               this.dateId
           )
@@ -120,7 +121,7 @@
       },
     },
     created() {
-      ;(this.dentalClnicId = this.$route.params.dentalClinicId),
+      ;(this.dentalClinicId = this.$route.params.dentalClinicId),
         (this.dateId = this.$route.params.dateId)
     },
     mounted() {

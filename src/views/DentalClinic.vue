@@ -66,7 +66,7 @@
     methods: {
       getDentalClinic() {
         axios
-          .get('http://localhost:3000/api/dentalClinics/' + this.dentalClnicId)
+          .get('http://localhost:3000/api/dentalClinics/' + this.dentalClinicId)
           .then(response => {
             this.dentalClinic = response.data
           })
@@ -85,7 +85,7 @@
       },
     },
     created() {
-      this.dentalClnicId = this.$route.params.dentalClinicId
+      this.dentalClinicId = this.$route.params.dentalClinicId
     },
     mounted() {
       this.getDentalClinic()
