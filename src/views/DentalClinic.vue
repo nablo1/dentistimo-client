@@ -76,7 +76,7 @@
             this.dentalClinic = null
           })
       },
-      checkSignedIn() {
+      checkSignedIn() { //to display buttons that should only be visible to admins
         if (localStorage.getItem('jwt') == null) {
           return false
         }
